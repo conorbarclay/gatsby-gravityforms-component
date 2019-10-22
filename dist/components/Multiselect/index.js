@@ -1,0 +1,38 @@
+"use strict";
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+exports.__esModule = true;
+exports.default = void 0;
+
+var _classnames = _interopRequireDefault(require("classnames"));
+
+var _react = _interopRequireDefault(require("react"));
+
+var _inputSettings = require("../../utils/inputSettings");
+
+const Multiselect = props => {
+  return _react.default.createElement("div", {
+    className: props.wrapClassName
+  }, _react.default.createElement("label", {
+    htmlFor: props.name,
+    className: "gravityform__label"
+  }, props.label), (0, _inputSettings.outputDescription)(props.description, props.descriptionPlacement, 'above'), _react.default.createElement("select", {
+    id: props.name,
+    name: props.name,
+    className: (0, _classnames.default)('gravityform__field__input__select', props.className),
+    ref: props.register({
+      required: props.required
+    }),
+    onChange: props.handleChange
+  }, props.options.map((choice, index) => {
+    return _react.default.createElement("option", {
+      key: `${props.id}_${index}`,
+      value: choice.value,
+      defaultValue: choice.isSelected
+    }, choice.text);
+  })), (0, _inputSettings.outputDescription)(props.description, props.descriptionPlacement, 'below'));
+};
+
+var _default = Multiselect;
+exports.default = _default;
