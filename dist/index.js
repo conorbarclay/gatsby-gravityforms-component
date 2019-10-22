@@ -113,7 +113,14 @@ const GravityFormForm = ({
         lineNumber: 100
       },
       __self: void 0
-    }), _react.default.createElement(_FieldBuilder.default, {
+    }), _react.default.createElement("div", {
+      className: "gravityform__wrapper",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 103
+      },
+      __self: void 0
+    }, _react.default.createElement(_FieldBuilder.default, {
       formId: id,
       formData: singleForm,
       presetValues: presetValues,
@@ -121,25 +128,32 @@ const GravityFormForm = ({
       errors: errors,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 103
+        lineNumber: 104
       },
       __self: void 0
-    }), _react.default.createElement("button", {
+    })), _react.default.createElement("div", {
+      className: "gravityform__footer",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 113
+      },
+      __self: void 0
+    }, _react.default.createElement("button", {
       type: "submit",
       className: "gravityform__button",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 110
+        lineNumber: 114
       },
       __self: void 0
     }, singleForm.button.text ? singleForm.button.text : 'Submit', ' ', formLoading && _react.default.createElement("span", {
       className: "gravityform__button__loading_span",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 115
+        lineNumber: 119
       },
       __self: void 0
-    }, "Loading")));
+    }, "Loading"))));
   }
 
   return (0, _reactHtmlParser.default)(confirmationMessage);

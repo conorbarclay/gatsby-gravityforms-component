@@ -100,23 +100,28 @@ const GravityFormForm = ({ id, formData, lambda, presetValues = {} }) => {
                         <FormGeneralError errorCode={generalError} />
                     )}
 
-                    <FieldBuilder
-                        formId={id}
-                        formData={singleForm}
-                        presetValues={presetValues}
-                        register={register}
-                        errors={errors}
-                    />
-                    <button type="submit" className="gravityform__button">
-                        {singleForm.button.text
-                            ? singleForm.button.text
-                            : 'Submit'}{' '}
-                        {formLoading && (
-                            <span className="gravityform__button__loading_span">
+                    <div className="gravityform__wrapper">
+                        <FieldBuilder
+                          formId={id}
+                          formData={singleForm}
+                          presetValues={presetValues}
+                          register={register}
+                          errors={errors}
+                        />
+                    </div>
+
+                    <div className="gravityform__footer">
+                        <button type="submit" className="gravityform__button">
+                            {singleForm.button.text
+                              ? singleForm.button.text
+                              : 'Submit'}{' '}
+                            {formLoading && (
+                              <span className="gravityform__button__loading_span">
                                 Loading
                             </span>
-                        )}
-                    </button>
+                            )}
+                        </button>
+                    </div>
                 </form>
             )
         )
