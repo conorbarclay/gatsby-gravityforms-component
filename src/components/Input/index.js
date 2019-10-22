@@ -47,8 +47,9 @@ const Input = props => {
             <PhoneInput
               id={props.name}
               country="CA"
-              placeholder="Enter phone number"
+              placeholder={props.placeholder}
               value={phoneNumber}
+              error={props.required && strings.errors.required}
               className={classnames(
                 'gravityform__field__input',
                 `gravityform__field__input__${props.type}`,
