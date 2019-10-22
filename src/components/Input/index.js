@@ -49,6 +49,7 @@ const Input = props => {
                   country="CA"
                   placeholder={props.placeholder}
                   value={phoneNumber}
+                  countrySelectTabIndex={-1}
                   className={classnames(
                     'gravityform__field__input',
                     `gravityform__field__input__${props.type}`,
@@ -58,6 +59,7 @@ const Input = props => {
                 />
                 <input
                   type="hidden"
+                  tabIndex={-1}
                   id={props.name}
                   name={props.name}
                   value={phoneNumber}

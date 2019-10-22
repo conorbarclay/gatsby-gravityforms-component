@@ -60,6 +60,7 @@ const Input = props => {
     country: "CA",
     placeholder: props.placeholder,
     value: phoneNumber,
+    countrySelectTabIndex: -1,
     className: (0, _classnames.default)('gravityform__field__input', `gravityform__field__input__${props.type}`),
     name: props.name,
     onChange: value => setPhoneNumber(value),
@@ -70,6 +71,7 @@ const Input = props => {
     __self: void 0
   }), _react.default.createElement("input", {
     type: "hidden",
+    tabIndex: -1,
     id: props.name,
     name: props.name,
     value: phoneNumber,
@@ -78,7 +80,7 @@ const Input = props => {
     }),
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 59
+      lineNumber: 60
     },
     __self: void 0
   })), type !== 'phone' && _react.default.createElement("input", {
@@ -102,14 +104,14 @@ const Input = props => {
     }),
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 71
+      lineNumber: 73
     },
     __self: void 0
   }), (0, _inputSettings.outputDescription)(props.description, props.descriptionPlacement, 'below'), props.errors && _react.default.createElement("div", {
     className: "gravityform__error_message",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 106
+      lineNumber: 108
     },
     __self: void 0
   }, props.errors.message));
