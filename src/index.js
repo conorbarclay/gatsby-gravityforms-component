@@ -79,7 +79,7 @@ const GravityFormForm = ({ id, formData, lambda, presetValues = {}, onSubmitSucc
                         restResponse.data.data.confirmation_message
                     )
 
-                    onSubmitSuccessCallback()
+                    onSubmitSuccessCallback(restResponse)
                 }
             } else {
                 setGeneralError('leastOneField')
