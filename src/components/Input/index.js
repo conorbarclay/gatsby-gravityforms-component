@@ -1,5 +1,5 @@
 import classnames from 'classnames'
-import React from 'react'
+import React, {useState} from 'react'
 import PhoneInput from 'react-phone-number-input'
 import { outputDescription } from '../../utils/inputSettings'
 import strings from '../../utils/strings'
@@ -8,6 +8,8 @@ const Input = props => {
     const regex = props.inputMaskValue
       ? new RegExp(props.inputMaskValue)
       : false
+
+    const [phoneNumber, setPhoneNumber] = useState(props.value);
 
     let inputType;
     const {type} = props;
@@ -46,27 +48,13 @@ const Input = props => {
               id={props.name}
               country="CA"
               placeholder="Enter phone number"
-              defaultValue={props.value}
+              value={phoneNumber}
               className={classnames(
                 'gravityform__field__input',
                 `gravityform__field__input__${props.type}`,
               )}
               name={props.name}
-              ref={props.register({
-                  required: props.required && strings.errors.required,
-                  maxlength: {
-                      value: props.maxLength > 0 && props.maxLength,
-                      message:
-                        props.maxLength > 0 &&
-                        `${strings.errors.maxChar.front}  ${
-                          props.maxLength
-                        } ${strings.errors.maxChar.back}`,
-                  },
-                  pattern: {
-                      value: regex,
-                      message: regex && strings.errors.pattern,
-                  },
-              })} />
+              onChange={ value => setPhoneNumber(value) }/>
           )}
           {type !== 'phone' && (
             <input
