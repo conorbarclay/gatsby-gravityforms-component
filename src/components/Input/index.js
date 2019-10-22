@@ -62,7 +62,7 @@ const Input = props => {
                   tabIndex={-1}
                   id={props.name}
                   name={props.name}
-                  value={phoneNumber}
+                  value={phoneNumber || ''}
                   ref={props.register({
                       required: props.required && strings.errors.required,
                   })}
