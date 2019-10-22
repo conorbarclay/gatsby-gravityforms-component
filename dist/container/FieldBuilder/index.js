@@ -73,6 +73,7 @@ const FieldBuilder = ({
       case 'text':
       case 'email':
       case 'phone':
+      case 'website':
         return _react.default.createElement(_Input.default, {
           key: field.id,
           name: `input_${field.id}`,
@@ -91,7 +92,7 @@ const FieldBuilder = ({
           errors: errors[`input_${field.id}`],
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 63
+            lineNumber: 64
           },
           __self: void 0
         });
@@ -115,7 +116,7 @@ const FieldBuilder = ({
           errors: errors[`input_${field.id}`],
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 94
+            lineNumber: 95
           },
           __self: void 0
         });
@@ -136,7 +137,7 @@ const FieldBuilder = ({
           errors: errors[`input_${field.id}`],
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 125
+            lineNumber: 126
           },
           __self: void 0
         });
@@ -157,7 +158,7 @@ const FieldBuilder = ({
           errors: errors[`input_${field.id}`],
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 145
+            lineNumber: 146
           },
           __self: void 0
         });
@@ -181,7 +182,7 @@ const FieldBuilder = ({
           errors: errors[`input_${field.id}`],
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 165
+            lineNumber: 166
           },
           __self: void 0
         });
@@ -202,7 +203,7 @@ const FieldBuilder = ({
           errors: errorKey.length > 0 ? errors[errorKey[0]] : null,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 197
+            lineNumber: 198
           },
           __self: void 0
         });
@@ -223,7 +224,7 @@ const FieldBuilder = ({
           errors: errorKey.length > 0 ? errors[errorKey[0]] : null,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 219
+            lineNumber: 220
           },
           __self: void 0
         });
@@ -245,7 +246,7 @@ const FieldBuilder = ({
           errors: errors[`input_${field.id}`],
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 240
+            lineNumber: 241
           },
           __self: void 0
         });
@@ -263,7 +264,7 @@ const FieldBuilder = ({
           className: field.cssClass,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 269
+            lineNumber: 270
           },
           __self: void 0
         });
