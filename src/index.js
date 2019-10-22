@@ -47,40 +47,40 @@ const GravityFormForm = ({ id, formData, lambda, presetValues = {}, onSubmitSucc
 
             // Check that at least one field has been filled in
             if (submissionHasOneFieldEntry(values)) {
-                const restResponse = await passToGravityForms(
+                await passToGravityForms(
                     singleForm.apiURL,
                     values,
                     lambda
-                )
+                ).then(({restResponse}) => {
+                    setLoadingState(false)
 
-                setLoadingState(false)
-
-                if (restResponse.status === 'error') {
-                    // Handle the errors
-                    // First check to make sure we have the correct data
-                    if (doesObjectExist(restResponse.data)) {
-                        // Validation errors passed back by Gravity Forms
-                        if (restResponse.data.status === 'gravityFormErrors') {
-                            // Pass messages to handle that sets react-hook-form errors
-                            handleGravityFormsValidationErrors(
-                                restResponse.data.validation_messages,
-                                setError
-                            )
+                    if (restResponse.status === 'error') {
+                        // Handle the errors
+                        // First check to make sure we have the correct data
+                        if (doesObjectExist(restResponse.data)) {
+                            // Validation errors passed back by Gravity Forms
+                            if (restResponse.data.status === 'gravityFormErrors') {
+                                // Pass messages to handle that sets react-hook-form errors
+                                handleGravityFormsValidationErrors(
+                                  restResponse.data.validation_messages,
+                                  setError
+                                )
+                            }
+                        } else {
+                            console.log(restResponse)
+                            // Seemed to be an unknown issue
+                            setGeneralError('unknownError')
                         }
-                    } else {
-                        console.log(restResponse)
-                        // Seemed to be an unknown issue
-                        setGeneralError('unknownError')
                     }
-                }
 
-                if (restResponse.status === 'success') {
-                    setConfirmationMessage(
-                        restResponse.data.data.confirmation_message
-                    )
+                    if (restResponse.status === 'success') {
+                        setConfirmationMessage(
+                          restResponse.data.data.confirmation_message
+                        )
 
-                    onSubmitSuccessCallback(restResponse)
-                }
+                        onSubmitSuccessCallback(restResponse)
+                    }
+                })
             } else {
                 setGeneralError('leastOneField')
             }
