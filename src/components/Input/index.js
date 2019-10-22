@@ -9,7 +9,7 @@ const Input = props => {
       ? new RegExp(props.inputMaskValue)
       : false
 
-    const [phoneNumber, setPhoneNumber] = useState(props.value);
+    const [phoneNumber, setPhoneNumber] = useState(props.value || '');
 
     let inputType;
     const {type} = props;
@@ -55,14 +55,14 @@ const Input = props => {
                     `gravityform__field__input__${props.type}`,
                   )}
                   name={props.name}
-                  onChange={ value => setPhoneNumber(value) }
+                  onChange={ value => setPhoneNumber(value || '') }
                 />
                 <input
                   type="hidden"
                   tabIndex={-1}
                   id={props.name}
                   name={props.name}
-                  value={phoneNumber || ''}
+                  value={phoneNumber}
                   ref={props.register({
                       required: props.required && strings.errors.required,
                   })}

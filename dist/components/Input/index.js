@@ -21,7 +21,7 @@ var _jsxFileName = "/Users/design3/Desktop/gatsby-gravityforms-component/src/com
 
 const Input = props => {
   const regex = props.inputMaskValue ? new RegExp(props.inputMaskValue) : false;
-  const [phoneNumber, setPhoneNumber] = (0, _react.useState)(props.value);
+  const [phoneNumber, setPhoneNumber] = (0, _react.useState)(props.value || '');
   let inputType;
   const {
     type
@@ -63,7 +63,7 @@ const Input = props => {
     countrySelectTabIndex: -1,
     className: (0, _classnames.default)('gravityform__field__input', `gravityform__field__input__${props.type}`),
     name: props.name,
-    onChange: value => setPhoneNumber(value),
+    onChange: value => setPhoneNumber(value || ''),
     __source: {
       fileName: _jsxFileName,
       lineNumber: 48
