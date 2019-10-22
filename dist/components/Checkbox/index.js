@@ -42,13 +42,20 @@ const Checkbox = ({
       lineNumber: 26
     },
     __self: void 0
-  }, label), (0, _inputSettings.outputDescription)(description, descriptionPlacement, 'above'), options.map((choice, index) => {
+  }, label), (0, _inputSettings.outputDescription)(description, descriptionPlacement, 'above'), _react.default.createElement("ul", {
+    className: "gravityform__field__options",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 28
+    },
+    __self: void 0
+  }, options.map((choice, index) => {
     const choiceID = index + 1;
-    return _react.default.createElement("div", {
+    return _react.default.createElement("li", {
       key: `${name}-${index + 1}`,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 31
+        lineNumber: 32
       },
       __self: void 0
     }, _react.default.createElement("input", {
@@ -63,22 +70,22 @@ const Checkbox = ({
       }),
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 32
+        lineNumber: 33
       },
       __self: void 0
     }), _react.default.createElement("label", {
       htmlFor: `${name}_${choiceID}`,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 47
+        lineNumber: 48
       },
       __self: void 0
     }, (0, _reactHtmlParser.default)(choice.text)));
-  }), (0, _inputSettings.outputDescription)(description, descriptionPlacement, 'below'), errors && _react.default.createElement("div", {
+  })), (0, _inputSettings.outputDescription)(description, descriptionPlacement, 'below'), errors && _react.default.createElement("div", {
     className: "gravityform__error_message",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 55
+      lineNumber: 57
     },
     __self: void 0
   }, errors.message));
