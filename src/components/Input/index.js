@@ -4,40 +4,6 @@ import PhoneInput from 'react-phone-number-input'
 import { outputDescription } from '../../utils/inputSettings'
 import strings from '../../utils/strings'
 
-function CustomPhoneField(props) {
-    return (
-      <input
-        id={props.name}
-        type="tel"
-        className={classnames(
-          'gravityform__field__input',
-          `gravityform__field__input__${props.type}`,
-        )}
-        name={props.name}
-        value={phoneNumber}
-        placeholder={props.placeholder}
-        ref={props.register({
-            required: props.required && strings.errors.required,
-            maxlength: {
-                value: props.maxLength > 0 && props.maxLength,
-                message:
-                  props.maxLength > 0 &&
-                  `${strings.errors.maxChar.front}  ${
-                    props.maxLength
-                  } ${strings.errors.maxChar.back}`,
-            },
-            pattern: {
-                value: regex,
-                message: regex && strings.errors.pattern,
-            },
-        })}
-        onFocus={(e) => {
-            console.log(e);
-        }}
-      />
-    )
-}
-
 const Input = props => {
     const regex = props.inputMaskValue
       ? new RegExp(props.inputMaskValue)
@@ -78,12 +44,27 @@ const Input = props => {
             'above'
           )}
           {type === 'phone' && (
-            <PhoneInput
-              numberInputComponent={<CustomPhoneField {...props} />}
-              country="CA"
-              value={phoneNumber}
-              onChange={ value => setPhoneNumber(value) }
-            />
+            <>
+                <PhoneInput
+                  country="CA"
+                  placeholder={props.placeholder}
+                  value={phoneNumber}
+                  className={classnames(
+                    'gravityform__field__input',
+                    `gravityform__field__input__${props.type}`,
+                  )}
+                  name={props.name}
+                  onChange={ value => setPhoneNumber(value) }
+                />
+                <input
+                  type="hidden"
+                  id={props.name}
+                  value={phoneNumber}
+                  ref={props.register({
+                      required: props.required && strings.errors.required,
+                  })}
+                />
+            </>
           )}
           {type !== 'phone' && (
             <input
