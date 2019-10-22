@@ -45,21 +45,40 @@ const Input = props => {
           )}
           {type === 'phone' && (
             <PhoneInput
-              id={props.name}
-              country="CA"
-              placeholder={props.placeholder}
-              value={phoneNumber}
-              className={classnames(
-                'gravityform__field__input',
-                `gravityform__field__input__${props.type}`,
-              )}
-              name={props.name}
-              onChange={ value => setPhoneNumber(value) }
-              numberInputProps={{
-                  ref: props.register({
+              numberInputComponent={(
+                <input
+                  id={props.name}
+                  type={inputType}
+                  className={classnames(
+                    'gravityform__field__input',
+                    `gravityform__field__input__${props.type}`,
+                  )}
+                  name={props.name}
+                  value={phoneNumber}
+                  placeholder={props.placeholder}
+                  ref={props.register({
                       required: props.required && strings.errors.required,
-                  })
-              }}
+                      maxlength: {
+                          value: props.maxLength > 0 && props.maxLength,
+                          message:
+                            props.maxLength > 0 &&
+                            `${strings.errors.maxChar.front}  ${
+                              props.maxLength
+                            } ${strings.errors.maxChar.back}`,
+                      },
+                      pattern: {
+                          value: regex,
+                          message: regex && strings.errors.pattern,
+                      },
+                  })}
+                  onFocus={(e) => {
+                      console.log(e);
+                  }}
+                />
+              )}
+              country="CA"
+              value={phoneNumber}
+              onChange={ value => setPhoneNumber(value) }
             />
           )}
           {type !== 'phone' && (

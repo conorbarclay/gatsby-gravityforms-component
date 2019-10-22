@@ -57,18 +57,36 @@ const Input = props => {
     },
     __self: void 0
   }, props.label, props.maxLength > 0 && maxLengthSentence(props.maxLength, props.type)), (0, _inputSettings.outputDescription)(props.description, props.descriptionPlacement, 'above'), type === 'phone' && _react.default.createElement(_reactPhoneNumberInput.default, {
-    id: props.name,
-    country: "CA",
-    placeholder: props.placeholder,
-    value: phoneNumber,
-    className: (0, _classnames.default)('gravityform__field__input', `gravityform__field__input__${props.type}`),
-    name: props.name,
-    onChange: value => setPhoneNumber(value),
-    numberInputProps: {
+    numberInputComponent: _react.default.createElement("input", {
+      id: props.name,
+      type: inputType,
+      className: (0, _classnames.default)('gravityform__field__input', `gravityform__field__input__${props.type}`),
+      name: props.name,
+      value: phoneNumber,
+      placeholder: props.placeholder,
       ref: props.register({
-        required: props.required && _strings.default.errors.required
-      })
-    },
+        required: props.required && _strings.default.errors.required,
+        maxlength: {
+          value: props.maxLength > 0 && props.maxLength,
+          message: props.maxLength > 0 && `${_strings.default.errors.maxChar.front}  ${props.maxLength} ${_strings.default.errors.maxChar.back}`
+        },
+        pattern: {
+          value: regex,
+          message: regex && _strings.default.errors.pattern
+        }
+      }),
+      onFocus: e => {
+        console.log(e);
+      },
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 49
+      },
+      __self: void 0
+    }),
+    country: "CA",
+    value: phoneNumber,
+    onChange: value => setPhoneNumber(value),
     __source: {
       fileName: _jsxFileName,
       lineNumber: 47
@@ -95,14 +113,14 @@ const Input = props => {
     }),
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 66
+      lineNumber: 85
     },
     __self: void 0
   }), (0, _inputSettings.outputDescription)(props.description, props.descriptionPlacement, 'below'), props.errors && _react.default.createElement("div", {
     className: "gravityform__error_message",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 101
+      lineNumber: 120
     },
     __self: void 0
   }, props.errors.message));
