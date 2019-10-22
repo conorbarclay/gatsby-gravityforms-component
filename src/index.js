@@ -51,7 +51,7 @@ const GravityFormForm = ({ id, formData, lambda, presetValues = {}, onSubmitSucc
                     singleForm.apiURL,
                     values,
                     lambda
-                ).then(({restResponse}) => {
+                ).then((restResponse) => {
                     setLoadingState(false)
 
                     if (restResponse.status === 'error') {

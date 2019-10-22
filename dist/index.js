@@ -71,9 +71,7 @@ const GravityFormForm = ({
       setGeneralError(''); // Check that at least one field has been filled in
 
       if ((0, _manageFormData.submissionHasOneFieldEntry)(values)) {
-        await (0, _passToGravityForms.default)(singleForm.apiURL, values, lambda).then(({
-          restResponse
-        }) => {
+        await (0, _passToGravityForms.default)(singleForm.apiURL, values, lambda).then(restResponse => {
           setLoadingState(false);
 
           if (restResponse.status === 'error') {
