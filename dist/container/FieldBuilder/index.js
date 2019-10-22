@@ -188,7 +188,6 @@ const FieldBuilder = ({
         });
 
       case 'checkbox':
-      case 'consent':
         errorKey = (0, _helpers.filteredKeys)(errors, RegExp(`input_${field.id}_`));
         return _react.default.createElement(_Checkbox.default, {
           key: field.id,
@@ -204,7 +203,7 @@ const FieldBuilder = ({
           errors: errorKey.length > 0 ? errors[errorKey[0]] : null,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 199
+            lineNumber: 198
           },
           __self: void 0
         });
@@ -225,7 +224,7 @@ const FieldBuilder = ({
           errors: errorKey.length > 0 ? errors[errorKey[0]] : null,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 221
+            lineNumber: 220
           },
           __self: void 0
         });
@@ -247,7 +246,7 @@ const FieldBuilder = ({
           errors: errors[`input_${field.id}`],
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 242
+            lineNumber: 241
           },
           __self: void 0
         });
@@ -265,7 +264,7 @@ const FieldBuilder = ({
           className: field.cssClass,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 271
+            lineNumber: 270
           },
           __self: void 0
         });

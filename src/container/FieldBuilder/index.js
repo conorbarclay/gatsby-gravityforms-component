@@ -193,7 +193,6 @@ const FieldBuilder = ({
                     />
                 )
             case 'checkbox':
-            case 'consent':
                 errorKey = filteredKeys(errors, RegExp(`input_${field.id}_`))
                 return (
                     <Checkbox
