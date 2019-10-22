@@ -11,24 +11,12 @@ var _react = _interopRequireDefault(require("react"));
 
 var _inputSettings = require("../../utils/inputSettings");
 
-var _jsxFileName = "/Users/design3/Desktop/gatsby-gravityforms-component/src/components/Select/index.js";
-
 const Select = props => {
   return _react.default.createElement("div", {
-    className: props.wrapClassName,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 7
-    },
-    __self: void 0
+    className: props.wrapClassName
   }, _react.default.createElement("label", {
     htmlFor: props.name,
-    className: "gravityform__label",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 8
-    },
-    __self: void 0
+    className: "gravityform__label"
   }, props.label), (0, _inputSettings.outputDescription)(props.description, props.descriptionPlacement, 'above'), _react.default.createElement("select", {
     id: props.name,
     name: props.name,
@@ -36,22 +24,12 @@ const Select = props => {
     ref: props.register({
       required: props.required && 'This field is required'
     }),
-    onChange: props.handleChange,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 16
-    },
-    __self: void 0
+    onChange: props.handleChange
   }, props.options.map((choice, index) => {
     return _react.default.createElement("option", {
       key: `${props.name}-${index}`,
       value: choice.value,
-      defaultValue: choice.isSelected,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 30
-      },
-      __self: void 0
+      defaultValue: choice.isSelected
     }, choice.text);
   })), (0, _inputSettings.outputDescription)(props.description, props.descriptionPlacement, 'below'));
 };
