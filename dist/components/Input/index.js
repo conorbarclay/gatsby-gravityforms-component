@@ -54,7 +54,7 @@ const Input = props => {
   }, props.label, props.maxLength > 0 && maxLengthSentence(props.maxLength, props.type)), (0, _inputSettings.outputDescription)(props.description, props.descriptionPlacement, 'above'), _react.default.createElement("input", {
     id: props.name,
     type: inputType,
-    className: (0, _classnames.default)('gravityform__field__input', `gravityform__field__input__${props.type}`, props.className),
+    className: (0, _classnames.default)('gravityform__field__input', `gravityform__field__input__${props.type}`),
     maxLength: props.maxLength > 0 ? props.maxLength : undefined,
     name: props.name,
     defaultValue: props.value,
@@ -79,7 +79,7 @@ const Input = props => {
     className: "gravityform__error_message",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 77
+      lineNumber: 76
     },
     __self: void 0
   }, props.errors.message));

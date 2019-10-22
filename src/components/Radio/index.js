@@ -34,7 +34,6 @@ const Radio = ({
                             className={classnames(
                                 'gravityform__field__input__radio',
                                 'gravityform__field__input__radio--' + choiceID,
-                                className
                             )}
                             name={`${name}`}
                             value={choice.value}

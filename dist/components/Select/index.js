@@ -32,7 +32,7 @@ const Select = props => {
   }, props.label), (0, _inputSettings.outputDescription)(props.description, props.descriptionPlacement, 'above'), _react.default.createElement("select", {
     id: props.name,
     name: props.name,
-    className: (0, _classnames.default)('gravityform__field__input', 'gravityform__field__input__select', props.className),
+    className: (0, _classnames.default)('gravityform__field__input', 'gravityform__field__input__select'),
     ref: props.register({
       required: props.required && 'This field is required'
     }),
@@ -49,7 +49,7 @@ const Select = props => {
       defaultValue: choice.isSelected,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 31
+        lineNumber: 30
       },
       __self: void 0
     }, choice.text);

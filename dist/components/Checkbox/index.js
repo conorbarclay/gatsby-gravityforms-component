@@ -54,7 +54,7 @@ const Checkbox = ({
     }, _react.default.createElement("input", {
       type: "checkbox",
       id: `${name}_${choiceID}`,
-      className: (0, _classnames.default)('gravityform__field__input__checkbox', 'gravityform__field__input__checkbox--' + choiceID, className),
+      className: (0, _classnames.default)('gravityform__field__input__checkbox', 'gravityform__field__input__checkbox--' + choiceID),
       name: `${name}_${choiceID}`,
       value: choice.value,
       defaultChecked: choice.isSelected,
@@ -70,7 +70,7 @@ const Checkbox = ({
       htmlFor: `${name}_${choiceID}`,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 48
+        lineNumber: 47
       },
       __self: void 0
     }, (0, _reactHtmlParser.default)(choice.text)));
@@ -78,7 +78,7 @@ const Checkbox = ({
     className: "gravityform__error_message",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 56
+      lineNumber: 55
     },
     __self: void 0
   }, errors.message));

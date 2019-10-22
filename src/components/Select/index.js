@@ -19,7 +19,6 @@ const Select = props => {
                 className={classnames(
                     'gravityform__field__input',
                     'gravityform__field__input__select',
-                    props.className
                 )}
                 ref={props.register({
                     required: props.required && 'This field is required',

@@ -32,7 +32,7 @@ const Html = props => {
     },
     __self: void 0
   }, props.label), (0, _inputSettings.outputDescription)(props.description, props.descriptionPlacement, 'above'), _react.default.createElement("div", {
-    className: (0, _classnames.default)('gravityform__' + props.type + '__wrap', props.className),
+    className: (0, _classnames.default)('gravityform__' + props.type + '__wrap'),
     __source: {
       fileName: _jsxFileName,
       lineNumber: 17

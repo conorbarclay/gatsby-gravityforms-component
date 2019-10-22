@@ -52,7 +52,7 @@ const Radio = ({
     }, _react.default.createElement("input", {
       type: "radio",
       id: `${name}_${choiceID}`,
-      className: (0, _classnames.default)('gravityform__field__input__radio', 'gravityform__field__input__radio--' + choiceID, className),
+      className: (0, _classnames.default)('gravityform__field__input__radio', 'gravityform__field__input__radio--' + choiceID),
       name: `${name}`,
       value: choice.value,
       defaultChecked: choice.isSelected,
@@ -68,7 +68,7 @@ const Radio = ({
       htmlFor: `${name}_${choiceID}`,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 46
+        lineNumber: 45
       },
       __self: void 0
     }, choice.text));
@@ -76,7 +76,7 @@ const Radio = ({
     className: "gravityform__error_message",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 54
+      lineNumber: 53
     },
     __self: void 0
   }, errors.message));

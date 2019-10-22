@@ -18,7 +18,6 @@ const Multiselect = props => {
                 name={props.name}
                 className={classnames(
                     'gravityform__field__input__select',
-                    props.className
                 )}
                 ref={props.register({
                     required: props.required,

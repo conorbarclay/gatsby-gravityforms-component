@@ -17,7 +17,6 @@ const Html = props => {
             <div
                 className={classnames(
                     'gravityform__' + props.type + '__wrap',
-                    props.className
                 )}
             >
                 {ReactHtmlParser(props.content)}

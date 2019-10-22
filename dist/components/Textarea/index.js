@@ -35,7 +35,7 @@ const Textarea = props => {
   }, props.label, props.maxLength > 0 && `(maxiumum ${props.maxLength} characters)`), (0, _inputSettings.outputDescription)(props.description, props.descriptionPlacement, 'above'), _react.default.createElement("textarea", {
     id: props.name,
     type: props.type,
-    className: (0, _classnames.default)('gravityform__field__input', `gravityform__field__input__${props.type}`, props.className),
+    className: (0, _classnames.default)('gravityform__field__input', `gravityform__field__input__${props.type}`),
     maxLength: props.maxLength > 0 ? props.maxLength : undefined,
     name: props.name,
     defaultValue: props.value,
@@ -60,7 +60,7 @@ const Textarea = props => {
     className: "gravityform__error_message",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 62
+      lineNumber: 61
     },
     __self: void 0
   }, props.errors.message));

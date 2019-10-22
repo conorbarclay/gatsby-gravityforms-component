@@ -31,7 +31,6 @@ const Textarea = props => {
                 className={classnames(
                     'gravityform__field__input',
                     `gravityform__field__input__${props.type}`,
-                    props.className
                 )}
                 maxLength={props.maxLength > 0 ? props.maxLength : undefined}
                 name={props.name}

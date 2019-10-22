@@ -36,7 +36,6 @@ const Checkbox = ({
                                 'gravityform__field__input__checkbox',
                                 'gravityform__field__input__checkbox--' +
                                     choiceID,
-                                className
                             )}
                             name={`${name}_${choiceID}`}
                             value={choice.value}
