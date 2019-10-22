@@ -59,7 +59,7 @@ const FieldBuilder = ({
             case 'text':
             case 'email':
             case 'phone':
-          case 'website':
+            case 'website':
                 return (
                     <Input
                         key={field.id}
@@ -193,6 +193,7 @@ const FieldBuilder = ({
                     />
                 )
             case 'checkbox':
+            case 'consent':
                 errorKey = filteredKeys(errors, RegExp(`input_${field.id}_`))
                 return (
                     <Checkbox
