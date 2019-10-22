@@ -44,7 +44,8 @@ const GravityFormForm = ({
   formData,
   lambda,
   presetValues = {},
-  onSubmitSuccessCallback = () => {}
+  onSubmitSuccessCallback = () => {},
+  loader = null
 }) => {
   // Pull in form functions
   const {
@@ -162,7 +163,7 @@ const GravityFormForm = ({
         lineNumber: 125
       },
       __self: void 0
-    }, "Loading"))));
+    }, loader && loader, !loader && 'Loading'))));
   }
 
   return (0, _reactHtmlParser.default)(confirmationMessage);

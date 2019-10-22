@@ -22,7 +22,7 @@ import passToGravityForms from './utils/passToGravityForms'
  *                              netlify or similar
  */
 
-const GravityFormForm = ({ id, formData, lambda, presetValues = {}, onSubmitSuccessCallback = () => {} }) => {
+const GravityFormForm = ({ id, formData, lambda, presetValues = {}, onSubmitSuccessCallback = () => {}, loader = null }) => {
     // Pull in form functions
     const { register, errors, handleSubmit, setError } = useForm()
 
@@ -123,7 +123,8 @@ const GravityFormForm = ({ id, formData, lambda, presetValues = {}, onSubmitSucc
                             )}
                             {formLoading && (
                               <span className="gravityform__button__loading">
-                                Loading
+                                {loader && loader}
+                                {!loader && 'Loading'}
                             </span>
                             )}
                         </button>
