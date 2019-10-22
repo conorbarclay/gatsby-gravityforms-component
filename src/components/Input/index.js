@@ -49,13 +49,16 @@ const Input = props => {
               country="CA"
               placeholder={props.placeholder}
               value={phoneNumber}
-              required={props.required}
               className={classnames(
                 'gravityform__field__input',
                 `gravityform__field__input__${props.type}`,
               )}
               name={props.name}
-              onChange={ value => setPhoneNumber(value) }/>
+              onChange={ value => setPhoneNumber(value) }
+              ref={props.register({
+                  required: props.required && strings.errors.required,
+              })}
+            />
           )}
           {type !== 'phone' && (
             <input
