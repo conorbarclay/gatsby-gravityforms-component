@@ -59,6 +59,7 @@ const FieldBuilder = ({
             case 'text':
             case 'email':
             case 'phone':
+          case 'website':
                 return (
                     <Input
                         key={field.id}
