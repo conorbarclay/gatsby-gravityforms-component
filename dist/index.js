@@ -43,7 +43,8 @@ const GravityFormForm = ({
   id,
   formData,
   lambda,
-  presetValues = {}
+  presetValues = {},
+  onSubmitSuccessCallback = () => {}
 }) => {
   // Pull in form functions
   const {
@@ -88,6 +89,7 @@ const GravityFormForm = ({
 
         if (restResponse.status === 'success') {
           setConfirmationMessage(restResponse.data.data.confirmation_message);
+          onSubmitSuccessCallback();
         }
       } else {
         setGeneralError('leastOneField');
@@ -103,21 +105,21 @@ const GravityFormForm = ({
       onSubmit: handleSubmit(onSubmitCallback),
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 89
+        lineNumber: 91
       },
       __self: void 0
     }, generalError && _react.default.createElement(_FormGeneralError.default, {
       errorCode: generalError,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 100
+        lineNumber: 102
       },
       __self: void 0
     }), _react.default.createElement("div", {
       className: "gravityform__wrapper",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 103
+        lineNumber: 105
       },
       __self: void 0
     }, _react.default.createElement(_FieldBuilder.default, {
@@ -128,14 +130,14 @@ const GravityFormForm = ({
       errors: errors,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 104
+        lineNumber: 106
       },
       __self: void 0
     })), _react.default.createElement("div", {
       className: "gravityform__footer",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 113
+        lineNumber: 115
       },
       __self: void 0
     }, _react.default.createElement("button", {
@@ -143,14 +145,14 @@ const GravityFormForm = ({
       className: "gravityform__button",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 114
+        lineNumber: 116
       },
       __self: void 0
     }, singleForm.button.text ? singleForm.button.text : 'Submit', ' ', formLoading && _react.default.createElement("span", {
       className: "gravityform__button__loading_span",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 119
+        lineNumber: 121
       },
       __self: void 0
     }, "Loading"))));
