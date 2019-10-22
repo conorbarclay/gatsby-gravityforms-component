@@ -1,5 +1,6 @@
 import classnames from 'classnames'
 import React from 'react'
+import PhoneInput from 'react-phone-number-input'
 import { outputDescription } from '../../utils/inputSettings'
 import strings from '../../utils/strings'
 
@@ -40,33 +41,63 @@ const Input = props => {
             props.descriptionPlacement,
             'above'
           )}
-          <input
-            id={props.name}
-            type={inputType}
-            className={classnames(
-              'gravityform__field__input',
-              `gravityform__field__input__${props.type}`,
-            )}
-            maxLength={props.maxLength > 0 ? props.maxLength : undefined}
-            name={props.name}
-            defaultValue={props.value}
-            placeholder={props.placeholder}
-            ref={props.register({
-                required: props.required && strings.errors.required,
-                maxlength: {
-                    value: props.maxLength > 0 && props.maxLength,
-                    message:
-                      props.maxLength > 0 &&
-                      `${strings.errors.maxChar.front}  ${
-                        props.maxLength
-                      } ${strings.errors.maxChar.back}`,
-                },
-                pattern: {
-                    value: regex,
-                    message: regex && strings.errors.pattern,
-                },
-            })}
-          />
+          {type === 'phone' && (
+            <PhoneInput
+              id={props.name}
+              country="CA"
+              placeholder="Enter phone number"
+              defaultValue={props.value}
+              className={classnames(
+                'gravityform__field__input',
+                `gravityform__field__input__${props.type}`,
+              )}
+              name={props.name}
+              ref={props.register({
+                  required: props.required && strings.errors.required,
+                  maxlength: {
+                      value: props.maxLength > 0 && props.maxLength,
+                      message:
+                        props.maxLength > 0 &&
+                        `${strings.errors.maxChar.front}  ${
+                          props.maxLength
+                        } ${strings.errors.maxChar.back}`,
+                  },
+                  pattern: {
+                      value: regex,
+                      message: regex && strings.errors.pattern,
+                  },
+              })} />
+          )}
+          {type !== 'phone' && (
+            <input
+              id={props.name}
+              type={inputType}
+              className={classnames(
+                'gravityform__field__input',
+                `gravityform__field__input__${props.type}`,
+              )}
+              maxLength={props.maxLength > 0 ? props.maxLength : undefined}
+              name={props.name}
+              defaultValue={props.value}
+              placeholder={props.placeholder}
+              ref={props.register({
+                  required: props.required && strings.errors.required,
+                  maxlength: {
+                      value: props.maxLength > 0 && props.maxLength,
+                      message:
+                        props.maxLength > 0 &&
+                        `${strings.errors.maxChar.front}  ${
+                          props.maxLength
+                        } ${strings.errors.maxChar.back}`,
+                  },
+                  pattern: {
+                      value: regex,
+                      message: regex && strings.errors.pattern,
+                  },
+              })}
+            />
+          )
+          }
           {outputDescription(
             props.description,
             props.descriptionPlacement,
