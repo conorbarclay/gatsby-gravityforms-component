@@ -91,7 +91,7 @@ const GravityFormForm = ({
           }
 
           if (restResponse.status === 'success') {
-            setConfirmationMessage(restResponse.data.data.confirmation_message);
+            setConfirmationMessage(restResponse.data.confirmation_message);
             onSubmitSuccessCallback(restResponse);
           }
         });

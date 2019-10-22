@@ -75,7 +75,7 @@ const GravityFormForm = ({ id, formData, lambda, presetValues = {}, onSubmitSucc
 
                     if (restResponse.status === 'success') {
                         setConfirmationMessage(
-                          restResponse.data.data.confirmation_message
+                          restResponse.data.confirmation_message
                         )
 
                         onSubmitSuccessCallback(restResponse)
