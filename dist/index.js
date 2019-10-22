@@ -57,14 +57,11 @@ const GravityFormForm = ({
   const [generalError, setGeneralError] = (0, _react.useState)('');
   const [formLoading, setLoadingState] = (0, _react.useState)(false); // State for confirmation message
 
-  const [confirmationMessage, setConfirmationMessage] = (0, _react.useState)(''); // Take ID argument and graphQL Gravity Form data for this form
+  const [sent, setSent] = (0, _react.useState)(false); // Take ID argument and graphQL Gravity Form data for this form
 
   const singleForm = (0, _getForm.default)(formData, id);
 
   const onSubmitCallback = async values => {
-    // Make sure we are not already waiting for a response
-    console.log(values);
-
     if (!formLoading) {
       setLoadingState(true); // Clean error
 
@@ -91,7 +88,7 @@ const GravityFormForm = ({
           }
 
           if (restResponse.status === 'success') {
-            setConfirmationMessage(restResponse.data.confirmation_message);
+            setSent(true);
             onSubmitSuccessCallback(restResponse);
           }
         });
@@ -101,7 +98,7 @@ const GravityFormForm = ({
     }
   };
 
-  if (!confirmationMessage) {
+  if (!sent) {
     return singleForm && _react.default.createElement("form", {
       id: `gravityform--id-${id}`,
       className: formLoading ? `gravityform gravityform--loading gravityform--id-${id}` : `gravityform gravityform--id-${id}`,
@@ -109,21 +106,21 @@ const GravityFormForm = ({
       onSubmit: handleSubmit(onSubmitCallback),
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 93
+        lineNumber: 87
       },
       __self: void 0
     }, generalError && _react.default.createElement(_FormGeneralError.default, {
       errorCode: generalError,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 104
+        lineNumber: 98
       },
       __self: void 0
     }), _react.default.createElement("div", {
       className: "gravityform__wrapper",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 107
+        lineNumber: 101
       },
       __self: void 0
     }, _react.default.createElement(_FieldBuilder.default, {
@@ -134,14 +131,14 @@ const GravityFormForm = ({
       errors: errors,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 108
+        lineNumber: 102
       },
       __self: void 0
     })), _react.default.createElement("div", {
       className: "gravityform__footer",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 117
+        lineNumber: 111
       },
       __self: void 0
     }, _react.default.createElement("button", {
@@ -150,27 +147,27 @@ const GravityFormForm = ({
       disabled: formLoading,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 118
+        lineNumber: 112
       },
       __self: void 0
     }, !formLoading && _react.default.createElement("span", {
       className: "gravityform__button__default",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 120
+        lineNumber: 114
       },
       __self: void 0
     }, singleForm.button.text ? singleForm.button.text : 'Submit', ' '), formLoading && _react.default.createElement("span", {
       className: "gravityform__button__loading",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 127
+        lineNumber: 121
       },
       __self: void 0
     }, loader && loader, !loader && 'Loading'))));
   }
 
-  return (0, _reactHtmlParser.default)(confirmationMessage);
+  return _react.default.createElement(_react.default.Fragment, null);
 };
 
 var _default = GravityFormForm;

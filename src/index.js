@@ -30,15 +30,12 @@ const GravityFormForm = ({ id, formData, lambda, presetValues = {}, onSubmitSucc
     const [formLoading, setLoadingState] = useState(false)
 
     // State for confirmation message
-    const [confirmationMessage, setConfirmationMessage] = useState('')
+    const [sent, setSent] = useState(false)
 
     // Take ID argument and graphQL Gravity Form data for this form
     const singleForm = getForm(formData, id)
 
     const onSubmitCallback = async values => {
-        // Make sure we are not already waiting for a response
-        console.log(values);
-
         if (!formLoading) {
             setLoadingState(true)
 
@@ -74,10 +71,7 @@ const GravityFormForm = ({ id, formData, lambda, presetValues = {}, onSubmitSucc
                     }
 
                     if (restResponse.status === 'success') {
-                        setConfirmationMessage(
-                          restResponse.data.confirmation_message
-                        )
-
+                        setSent(true)
                         onSubmitSuccessCallback(restResponse)
                     }
                 })
@@ -87,7 +81,7 @@ const GravityFormForm = ({ id, formData, lambda, presetValues = {}, onSubmitSucc
         }
     }
 
-    if (!confirmationMessage) {
+    if (!sent) {
         return (
             singleForm && (
                 <form
@@ -136,7 +130,10 @@ const GravityFormForm = ({ id, formData, lambda, presetValues = {}, onSubmitSucc
         )
     }
 
-    return ReactHtmlParser(confirmationMessage)
+    return (
+      <>
+      </>
+    )
 }
 
 export default GravityFormForm
