@@ -41,7 +41,8 @@ const FieldBuilder = ({
   // The top level settings for the whole form
   const formSettings = {
     descriptionPlacement: formData.descriptionPlacement
-  }; // Loop through fields and create
+  };
+  console.log(errors); // Loop through fields and create
 
   return formData.formFields.map(field => {
     // Set the wrapper classes
@@ -58,13 +59,13 @@ const FieldBuilder = ({
         return _react.default.createElement("p", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 49
+            lineNumber: 51
           },
           __self: void 0
         }, _react.default.createElement("strong", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 50
+            lineNumber: 52
           },
           __self: void 0
         }, "Gatsby Gravity Form Component currently does not support the CAPTCHA field. Form will not submit with this field present. Remove this field from the Gravity Form."));
@@ -92,7 +93,7 @@ const FieldBuilder = ({
           errors: errors[`input_${field.id}`],
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 64
+            lineNumber: 66
           },
           __self: void 0
         });
@@ -116,7 +117,7 @@ const FieldBuilder = ({
           errors: errors[`input_${field.id}`],
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 95
+            lineNumber: 97
           },
           __self: void 0
         });
@@ -137,7 +138,7 @@ const FieldBuilder = ({
           errors: errors[`input_${field.id}`],
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 126
+            lineNumber: 128
           },
           __self: void 0
         });
@@ -158,7 +159,7 @@ const FieldBuilder = ({
           errors: errors[`input_${field.id}`],
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 146
+            lineNumber: 148
           },
           __self: void 0
         });
@@ -182,7 +183,7 @@ const FieldBuilder = ({
           errors: errors[`input_${field.id}`],
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 166
+            lineNumber: 168
           },
           __self: void 0
         });
@@ -203,7 +204,7 @@ const FieldBuilder = ({
           errors: errorKey.length > 0 ? errors[errorKey[0]] : null,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 198
+            lineNumber: 200
           },
           __self: void 0
         });
@@ -224,7 +225,7 @@ const FieldBuilder = ({
           errors: errorKey.length > 0 ? errors[errorKey[0]] : null,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 220
+            lineNumber: 222
           },
           __self: void 0
         });
@@ -246,7 +247,7 @@ const FieldBuilder = ({
           errors: errors[`input_${field.id}`],
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 241
+            lineNumber: 243
           },
           __self: void 0
         });
@@ -264,7 +265,7 @@ const FieldBuilder = ({
           className: field.cssClass,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 270
+            lineNumber: 272
           },
           __self: void 0
         });

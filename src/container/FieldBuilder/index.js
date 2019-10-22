@@ -28,6 +28,8 @@ const FieldBuilder = ({
         descriptionPlacement: formData.descriptionPlacement,
     }
 
+    console.log(errors);
+
     // Loop through fields and create
     return formData.formFields.map(field => {
         // Set the wrapper classes
