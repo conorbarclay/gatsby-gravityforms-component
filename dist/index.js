@@ -148,18 +148,18 @@ const GravityFormForm = ({
         lineNumber: 116
       },
       __self: void 0
-    }, _react.default.createElement("span", {
+    }, !formLoading && _react.default.createElement("span", {
       className: "gravityform__button__default",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 117
+        lineNumber: 118
       },
       __self: void 0
     }, singleForm.button.text ? singleForm.button.text : 'Submit', ' '), formLoading && _react.default.createElement("span", {
       className: "gravityform__button__loading",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 123
+        lineNumber: 125
       },
       __self: void 0
     }, "Loading"))));

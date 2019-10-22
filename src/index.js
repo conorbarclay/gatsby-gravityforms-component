@@ -114,11 +114,13 @@ const GravityFormForm = ({ id, formData, lambda, presetValues = {}, onSubmitSucc
 
                     <div className="gravityform__footer">
                         <button type="submit" className="gravityform__button">
-                            <span className="gravityform__button__default">
+                            {!formLoading && (
+                              <span className="gravityform__button__default">
                                 {singleForm.button.text
                                   ? singleForm.button.text
                                   : 'Submit'}{' '}
                             </span>
+                            )}
                             {formLoading && (
                               <span className="gravityform__button__loading">
                                 Loading
