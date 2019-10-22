@@ -59,6 +59,7 @@ const Input = props => {
                 <input
                   type="hidden"
                   id={props.name}
+                  name={props.name}
                   value={phoneNumber}
                   ref={props.register({
                       required: props.required && strings.errors.required,
