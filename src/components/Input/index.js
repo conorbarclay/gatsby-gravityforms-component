@@ -50,7 +50,6 @@ const Input = props => {
               placeholder={props.placeholder}
               value={phoneNumber}
               required={props.required}
-              error={strings.errors.required}
               className={classnames(
                 'gravityform__field__input',
                 `gravityform__field__input__${props.type}`,
