@@ -12,6 +12,8 @@ var _react = _interopRequireDefault(require("react"));
 
 var _reactHtmlParser = _interopRequireDefault(require("react-html-parser"));
 
+var _jsxFileName = "/Users/design3/Desktop/gatsby-gravityforms-component/src/utils/inputSettings.js";
+
 /**
  * This file manages all of the Gravity Forms input settings.
  * Things such as: Input Mask, Required, Visibility
@@ -23,7 +25,12 @@ function getPlacement(formSetting, fieldSettings) {
 function outputDescription(description, placement, currentPosition) {
   if (description && currentPosition === placement) {
     return _react.default.createElement("p", {
-      className: `gravityforms__description gravityforms__description--${placement}`
+      className: `gravityforms__description gravityforms__description--${placement}`,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 16
+      },
+      __self: this
     }, (0, _reactHtmlParser.default)(description));
   }
 

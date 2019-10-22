@@ -15,6 +15,8 @@ var _inputSettings = require("../../utils/inputSettings");
 
 var _strings = _interopRequireDefault(require("../../utils/strings"));
 
+var _jsxFileName = "/Users/design3/Desktop/gatsby-gravityforms-component/src/components/Checkbox/index.js";
+
 const Checkbox = ({
   name,
   label,
@@ -28,11 +30,27 @@ const Checkbox = ({
   descriptionPlacement
 }) => {
   return _react.default.createElement("div", {
-    className: (0, _classnames.default)(wrapClassName, errors && 'gravityform__field--error')
-  }, _react.default.createElement("legend", null, label), (0, _inputSettings.outputDescription)(description, descriptionPlacement, 'above'), options.map((choice, index) => {
+    className: (0, _classnames.default)(wrapClassName, errors && 'gravityform__field--error'),
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 20
+    },
+    __self: void 0
+  }, _react.default.createElement("legend", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 26
+    },
+    __self: void 0
+  }, label), (0, _inputSettings.outputDescription)(description, descriptionPlacement, 'above'), options.map((choice, index) => {
     const choiceID = index + 1;
     return _react.default.createElement("div", {
-      key: `${name}-${index + 1}`
+      key: `${name}-${index + 1}`,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 31
+      },
+      __self: void 0
     }, _react.default.createElement("input", {
       type: "checkbox",
       id: `${name}_${choiceID}`,
@@ -42,12 +60,27 @@ const Checkbox = ({
       defaultChecked: choice.isSelected,
       ref: register({
         required: required && _strings.default.errors.required
-      })
+      }),
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 32
+      },
+      __self: void 0
     }), _react.default.createElement("label", {
-      htmlFor: `${name}_${choiceID}`
+      htmlFor: `${name}_${choiceID}`,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 48
+      },
+      __self: void 0
     }, (0, _reactHtmlParser.default)(choice.text)));
   }), (0, _inputSettings.outputDescription)(description, descriptionPlacement, 'below'), errors && _react.default.createElement("div", {
-    className: "gravityform__error_message"
+    className: "gravityform__error_message",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 56
+    },
+    __self: void 0
   }, errors.message));
 };
 

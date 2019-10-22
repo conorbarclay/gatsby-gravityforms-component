@@ -13,16 +13,47 @@ var _inputSettings = require("../../utils/inputSettings");
 
 var _strings = _interopRequireDefault(require("../../utils/strings"));
 
+var _jsxFileName = "/Users/design3/Desktop/gatsby-gravityforms-component/src/components/Input/index.js";
+
 const Input = props => {
   const regex = props.inputMaskValue ? new RegExp(props.inputMaskValue) : false;
+  let inputType;
+  const {
+    type
+  } = props;
+
+  switch (type) {
+    case 'phone':
+      inputType = 'tel';
+      break;
+
+    case 'website':
+      inputType = 'url';
+      break;
+
+    default:
+      inputType = type;
+      break;
+  }
+
   return _react.default.createElement("div", {
-    className: (0, _classnames.default)(props.wrapClassName, props.errors && 'gravityform__field--error')
+    className: (0, _classnames.default)(props.wrapClassName, props.errors && 'gravityform__field--error'),
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 27
+    },
+    __self: void 0
   }, _react.default.createElement("label", {
     htmlFor: props.name,
-    className: "gravityform__label"
+    className: "gravityform__label",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 33
+    },
+    __self: void 0
   }, props.label, props.maxLength > 0 && maxLengthSentence(props.maxLength, props.type)), (0, _inputSettings.outputDescription)(props.description, props.descriptionPlacement, 'above'), _react.default.createElement("input", {
     id: props.name,
-    type: props.type,
+    type: inputType,
     className: (0, _classnames.default)('gravityform__field__input', `gravityform__field__input__${props.type}`, props.className),
     maxLength: props.maxLength > 0 ? props.maxLength : undefined,
     name: props.name,
@@ -38,9 +69,19 @@ const Input = props => {
         value: regex,
         message: regex && _strings.default.errors.pattern
       }
-    })
+    }),
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 43
+    },
+    __self: void 0
   }), (0, _inputSettings.outputDescription)(props.description, props.descriptionPlacement, 'below'), props.errors && _react.default.createElement("div", {
-    className: "gravityform__error_message"
+    className: "gravityform__error_message",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 77
+    },
+    __self: void 0
   }, props.errors.message));
 };
 
