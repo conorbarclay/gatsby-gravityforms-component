@@ -72,7 +72,7 @@ const GravityFormForm = ({ id, formData, lambda, presetValues = {}, onSubmitSucc
 
                     if (restResponse.status === 'success') {
                         setSent(true)
-                        onSubmitSuccessCallback(restResponse)
+                        onSubmitSuccessCallback(restResponse.data)
                     }
                 })
             } else {

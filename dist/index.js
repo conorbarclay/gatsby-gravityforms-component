@@ -89,7 +89,7 @@ const GravityFormForm = ({
 
           if (restResponse.status === 'success') {
             setSent(true);
-            onSubmitSuccessCallback(restResponse);
+            onSubmitSuccessCallback(restResponse.data);
           }
         });
       } else {
