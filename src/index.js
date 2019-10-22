@@ -115,7 +115,7 @@ const GravityFormForm = ({ id, formData, lambda, presetValues = {}, onSubmitSucc
                     </div>
 
                     <div className="gravityform__footer">
-                        <button type="submit" className="gravityform__button">
+                        <button type="submit" className="gravityform__button" disabled={formLoading}>
                             {!formLoading && (
                               <span className="gravityform__button__default">
                                 {singleForm.button.text

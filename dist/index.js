@@ -146,6 +146,7 @@ const GravityFormForm = ({
     }, _react.default.createElement("button", {
       type: "submit",
       className: "gravityform__button",
+      disabled: formLoading,
       __source: {
         fileName: _jsxFileName,
         lineNumber: 118
