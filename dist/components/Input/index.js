@@ -65,7 +65,8 @@ const Input = props => {
     name: props.name,
     onChange: value => setPhoneNumber(value),
     ref: props.register({
-      required: props.required && _strings.default.errors.required
+      required: props.required && _strings.default.errors.required,
+      name: props.name
     }),
     __source: {
       fileName: _jsxFileName,
@@ -93,14 +94,14 @@ const Input = props => {
     }),
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 64
+      lineNumber: 65
     },
     __self: void 0
   }), (0, _inputSettings.outputDescription)(props.description, props.descriptionPlacement, 'below'), props.errors && _react.default.createElement("div", {
     className: "gravityform__error_message",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 99
+      lineNumber: 100
     },
     __self: void 0
   }, props.errors.message));

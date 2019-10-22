@@ -57,6 +57,7 @@ const Input = props => {
               onChange={ value => setPhoneNumber(value) }
               ref={props.register({
                   required: props.required && strings.errors.required,
+                  name: props.name,
               })}
             />
           )}
