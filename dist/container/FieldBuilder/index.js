@@ -29,7 +29,10 @@ var _helpers = require("../../utils/helpers");
 
 var _inputSettings = require("../../utils/inputSettings");
 
+var _jsxFileName = "/Users/design3/Desktop/gatsby-gravityforms-component/src/container/FieldBuilder/index.js";
+
 const FieldBuilder = ({
+  formId,
   formData,
   presetValues = {},
   register,
@@ -50,11 +53,6 @@ const FieldBuilder = ({
     let errorKey = '';
 
     switch (field.type) {
-      // Add note for unsupported captcha field
-      case 'captcha':
-        return _react.default.createElement("p", null, _react.default.createElement("strong", null, "Gatsby Gravity Form Component currently does not support the CAPTCHA field. Form will not submit with this field present. Remove this field from the Gravity Form."));
-      // Start with the standard fields
-
       case 'text':
       case 'email':
       case 'phone':
@@ -74,7 +72,12 @@ const FieldBuilder = ({
           placeholder: field.placeholder,
           maxLength: field.maxLength,
           inputMaskValue: field.inputMaskValue,
-          errors: errors[`input_${field.id}`]
+          errors: errors[`input_${field.id}`],
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 51
+          },
+          __self: void 0
         });
 
       case 'textarea':
@@ -93,7 +96,12 @@ const FieldBuilder = ({
           placeholder: field.placeholder,
           maxLength: field.maxLength,
           inputMaskValue: field.inputMaskValue,
-          errors: errors[`input_${field.id}`]
+          errors: errors[`input_${field.id}`],
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 82
+          },
+          __self: void 0
         });
 
       case 'select':
@@ -109,7 +117,12 @@ const FieldBuilder = ({
           className: field.cssClass,
           register: register,
           required: field.isRequired,
-          errors: errors[`input_${field.id}`]
+          errors: errors[`input_${field.id}`],
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 113
+          },
+          __self: void 0
         });
 
       case 'multiselect':
@@ -125,7 +138,12 @@ const FieldBuilder = ({
           className: field.cssClass,
           register: register,
           required: field.isRequired,
-          errors: errors[`input_${field.id}`]
+          errors: errors[`input_${field.id}`],
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 133
+          },
+          __self: void 0
         });
 
       case 'number':
@@ -144,7 +162,12 @@ const FieldBuilder = ({
           placeholder: field.placeholder,
           maxLength: field.maxLength,
           inputMaskValue: field.inputMaskValue,
-          errors: errors[`input_${field.id}`]
+          errors: errors[`input_${field.id}`],
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 153
+          },
+          __self: void 0
         });
 
       case 'checkbox':
@@ -160,7 +183,12 @@ const FieldBuilder = ({
           className: field.cssClass,
           register: register,
           required: field.isRequired,
-          errors: errorKey.length > 0 ? errors[errorKey[0]] : null
+          errors: errorKey.length > 0 ? errors[errorKey[0]] : null,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 185
+          },
+          __self: void 0
         });
 
       case 'radio':
@@ -176,7 +204,12 @@ const FieldBuilder = ({
           className: field.cssClass,
           register: register,
           required: field.isRequired,
-          errors: errorKey.length > 0 ? errors[errorKey[0]] : null
+          errors: errorKey.length > 0 ? errors[errorKey[0]] : null,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 207
+          },
+          __self: void 0
         });
 
       case 'hidden':
@@ -193,7 +226,12 @@ const FieldBuilder = ({
           register: register,
           required: field.isRequired,
           placeholder: field.placeholder,
-          errors: errors[`input_${field.id}`]
+          errors: errors[`input_${field.id}`],
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 228
+          },
+          __self: void 0
         });
 
       case 'html':
@@ -206,7 +244,12 @@ const FieldBuilder = ({
           descriptionPlacement: (0, _inputSettings.getPlacement)(formSettings.descriptionPlacement, field.descriptionPlacement),
           content: field.content,
           wrapClassName: inputWrapperClass,
-          className: field.cssClass
+          className: field.cssClass,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 257
+          },
+          __self: void 0
         });
 
       default:
