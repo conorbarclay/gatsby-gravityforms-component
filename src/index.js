@@ -70,11 +70,13 @@ const GravityFormForm = ({ id, captchaSiteKey, formData, lambda, presetValues = 
               restResponse.data.validation_messages,
               setError,
             );
+
+            recaptchaRef.current.reset();
           }
         } else {
           console.log(restResponse);
-          // Seemed to be an unknown issue
           setGeneralError('unknownError');
+          recaptchaRef.current.reset();
         }
       }
 
