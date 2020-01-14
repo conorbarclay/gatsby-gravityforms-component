@@ -25,7 +25,6 @@ const GravityFormForm = ({ id, captchaSiteKey, formData, lambda, presetValues = 
 
   const [generalError, setGeneralError] = useState('');
   const [formLoading, setLoadingState] = useState(false);
-  const [captcha, setCaptcha] = useState('');
   const recaptchaRef = useRef(null);
 
   // State for confirmation message
