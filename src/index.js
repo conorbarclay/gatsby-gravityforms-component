@@ -37,12 +37,9 @@ const GravityFormForm = ({ id, captchaSiteKey, formData, lambda, presetValues = 
   const onSubmitCallback = async values => {
     setFormValues(values);
     recaptchaRef.current.execute();
-    console.log(`form values set: ${values}`);
   };
 
   const afterCaptchaCallback = async (captcha) => {
-    console.log(`about to send form: ${captcha}`);
-
     const values = formValues;
 
     if (!formLoading) {
@@ -144,7 +141,6 @@ const GravityFormForm = ({ id, captchaSiteKey, formData, lambda, presetValues = 
             size="invisible"
             badge="bottomleft"
             onChange={(response) => {
-              console.log(`captcha response: ${response}`);
               return afterCaptchaCallback(response);
             }}
           />
