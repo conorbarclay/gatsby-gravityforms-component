@@ -34,8 +34,7 @@ const GravityFormForm = ({ id, captchaSiteKey, formData, lambda, presetValues = 
   // Take ID argument and graphQL Gravity Form data for this form
   const singleForm = getForm(formData, id);
 
-  const onSubmit = (e) => {
-    e.preventDefault();
+  const onSubmit = () => {
     if (recaptchaRef.current.getValue()) {
       handleSubmit(onSubmitCallback);
     } else {
