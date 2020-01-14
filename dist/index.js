@@ -180,6 +180,7 @@ const GravityFormForm = ({
     }, loader && loader, !loader && 'Loading'))), _react.default.createElement(_reactGoogleRecaptcha.default, {
       sitekey: captchaSiteKey,
       ref: recaptchaRef,
+      badge: "bottomleft",
       onChange: response => {
         if (response) {
           handleSubmit();

@@ -138,6 +138,7 @@ const GravityFormForm = ({ id, captchaSiteKey, formData, lambda, presetValues = 
           <ReCAPTCHA
             sitekey={captchaSiteKey}
             ref={recaptchaRef}
+            badge="bottomleft"
             onChange={response => {
               if (response) {
                 handleSubmit();
