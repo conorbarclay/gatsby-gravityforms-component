@@ -57,6 +57,7 @@ const GravityFormForm = ({
   } = (0, _reactHookForm.default)();
   const [generalError, setGeneralError] = (0, _react.useState)('');
   const [formLoading, setLoadingState] = (0, _react.useState)(false);
+  const [captcha, setCaptcha] = (0, _react.useState)('');
   const recaptchaRef = (0, _react.useRef)(null); // State for confirmation message
 
   const [sent, setSent] = (0, _react.useState)(false); // Take ID argument and graphQL Gravity Form data for this form
@@ -64,9 +65,6 @@ const GravityFormForm = ({
   const singleForm = (0, _getForm.default)(formData, id);
 
   const onSubmitCallback = async values => {
-    recaptchaRef.current.execute();
-    console.log(recaptchaRef);
-
     if (!formLoading) {
       setLoadingState(true); // Clean error
 
@@ -103,6 +101,7 @@ const GravityFormForm = ({
     }
 
     recaptchaRef.current.reset();
+    setCaptcha('');
   };
 
   if (!sent) {
@@ -110,10 +109,12 @@ const GravityFormForm = ({
       id: `gravityform--id-${id}`,
       className: formLoading ? `gravityform gravityform--loading gravityform--id-${id}` : `gravityform gravityform--id-${id}`,
       key: `gravityform--id-${id}`,
-      onSubmit: handleSubmit(onSubmitCallback),
+      onSubmit: () => {
+        recaptchaRef.current.execute();
+      },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 92
+        lineNumber: 90
       },
       __self: void 0
     }, generalError && _react.default.createElement(_FormGeneralError.default, {
@@ -176,6 +177,10 @@ const GravityFormForm = ({
       ref: recaptchaRef,
       size: "invisible",
       badge: "bottomleft",
+      onChange: response => {
+        setCaptcha(response);
+        handleSubmit(onSubmitCallback);
+      },
       __source: {
         fileName: _jsxFileName,
         lineNumber: 134
