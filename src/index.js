@@ -134,6 +134,7 @@ const GravityFormForm = ({ id, captchaSiteKey, formData, lambda, presetValues = 
             sitekey={captchaSiteKey}
             ref={recaptchaRef}
             size="invisible"
+            badge="bottomleft"
           />
         </form>
       )

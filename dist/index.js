@@ -175,6 +175,7 @@ const GravityFormForm = ({
       sitekey: captchaSiteKey,
       ref: recaptchaRef,
       size: "invisible",
+      badge: "bottomleft",
       __source: {
         fileName: _jsxFileName,
         lineNumber: 133
