@@ -25,8 +25,8 @@ const GravityFormForm = ({ id, captchaSiteKey, formData, lambda, presetValues = 
 
   const [generalError, setGeneralError] = useState('');
   const [formLoading, setLoadingState] = useState(false);
-  const [captcha, setCaptcha] = useState('');
   const recaptchaRef = useRef(null);
+  const [formValues, setFormValues] = useState({});
 
   // State for confirmation message
   const [sent, setSent] = useState(false);
@@ -35,6 +35,16 @@ const GravityFormForm = ({ id, captchaSiteKey, formData, lambda, presetValues = 
   const singleForm = getForm(formData, id);
 
   const onSubmitCallback = async values => {
+    setFormValues(values);
+    recaptchaRef.current.execute();
+    console.log(`form values set: ${values}`);
+  };
+
+  const afterCaptchaCallback = async (captcha) => {
+    console.log(`about to send form: ${captcha}`);
+
+    const values = formValues;
+
     if (!formLoading) {
       setLoadingState(true);
 
@@ -46,7 +56,7 @@ const GravityFormForm = ({ id, captchaSiteKey, formData, lambda, presetValues = 
         await passToGravityForms(
           singleForm.apiURL,
           values,
-          recaptchaRef.current.getValue(),
+          captcha,
           lambda,
         ).then((restResponse) => {
           setLoadingState(false);
@@ -81,7 +91,6 @@ const GravityFormForm = ({ id, captchaSiteKey, formData, lambda, presetValues = 
     }
 
     recaptchaRef.current.reset();
-    setCaptcha('');
   };
 
   if (!sent) {
@@ -95,10 +104,7 @@ const GravityFormForm = ({ id, captchaSiteKey, formData, lambda, presetValues = 
               : `gravityform gravityform--id-${id}`
           }
           key={`gravityform--id-${id}`}
-          onSubmit={(e) => {
-            e.preventDefault();
-            recaptchaRef.current.execute();
-          }}
+          onSubmit={handleSubmit(onSubmitCallback)}
         >
           {generalError && (
             <FormGeneralError errorCode={generalError} />
@@ -138,8 +144,8 @@ const GravityFormForm = ({ id, captchaSiteKey, formData, lambda, presetValues = 
             size="invisible"
             badge="bottomleft"
             onChange={(response) => {
-              setCaptcha(response);
-              handleSubmit(onSubmitCallback);
+              console.log(`captcha response: ${response}`);
+              return afterCaptchaCallback(response);
             }}
           />
         </form>
