@@ -108,11 +108,13 @@ const GravityFormForm = ({ id, captchaSiteKey, formData, lambda, presetValues = 
             />
           </div>
 
-          <ReCAPTCHA
-            sitekey={captchaSiteKey}
-            ref={recaptchaRef}
-            onChange={setCaptcha}
-          />
+          <div className="gravityform__captcha">
+            <ReCAPTCHA
+              sitekey={captchaSiteKey}
+              ref={recaptchaRef}
+              onChange={setCaptcha}
+            />
+          </div>
 
           <div className="gravityform__footer">
             <button type="submit" className="gravityform__button" disabled={formLoading}>
