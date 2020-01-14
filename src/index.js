@@ -25,6 +25,7 @@ const GravityFormForm = ({ id, captchaSiteKey, formData, lambda, presetValues = 
 
   const [generalError, setGeneralError] = useState('');
   const [formLoading, setLoadingState] = useState(false);
+  const [captcha, setCaptcha] = useState('');
   const recaptchaRef = useRef(null);
 
   // State for confirmation message
@@ -33,15 +34,9 @@ const GravityFormForm = ({ id, captchaSiteKey, formData, lambda, presetValues = 
   // Take ID argument and graphQL Gravity Form data for this form
   const singleForm = getForm(formData, id);
 
-  const onSubmit = () => {
-    if (recaptchaRef.current.getValue()) {
-      handleSubmit(onSubmitCallback);
-    } else {
-      recaptchaRef.current.execute();
-    }
-  };
-
   const onSubmitCallback = async values => {
+    recaptchaRef.current.execute();
+
     if (!formLoading) {
       setLoadingState(true);
 
@@ -86,6 +81,8 @@ const GravityFormForm = ({ id, captchaSiteKey, formData, lambda, presetValues = 
         setGeneralError('leastOneField');
       }
     }
+
+    recaptchaRef.current.reset();
   };
 
   if (!sent) {
@@ -99,7 +96,7 @@ const GravityFormForm = ({ id, captchaSiteKey, formData, lambda, presetValues = 
               : `gravityform gravityform--id-${id}`
           }
           key={`gravityform--id-${id}`}
-          onSubmit={onSubmit}
+          onSubmit={handleSubmit(onSubmitCallback)}
         >
           {generalError && (
             <FormGeneralError errorCode={generalError} />
@@ -136,14 +133,6 @@ const GravityFormForm = ({ id, captchaSiteKey, formData, lambda, presetValues = 
           <ReCAPTCHA
             sitekey={captchaSiteKey}
             ref={recaptchaRef}
-            badge="bottomleft"
-            onChange={response => {
-              if (response) {
-                handleSubmit();
-              } else {
-                recaptchaRef.current.execute();
-              }
-            }}
             size="invisible"
           />
         </form>
