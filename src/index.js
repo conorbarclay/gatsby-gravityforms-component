@@ -95,7 +95,8 @@ const GravityFormForm = ({ id, captchaSiteKey, formData, lambda, presetValues = 
               : `gravityform gravityform--id-${id}`
           }
           key={`gravityform--id-${id}`}
-          onSubmit={() => {
+          onSubmit={(e) => {
+            e.preventDefault();
             recaptchaRef.current.execute();
           }}
         >
