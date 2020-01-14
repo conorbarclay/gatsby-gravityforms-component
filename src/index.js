@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import ReCAPTCHA from 'react-google-recaptcha';
 import useForm from 'react-hook-form/dist/react-hook-form.ie11';
 import FormGeneralError from './components/FormGeneralError';
@@ -36,21 +36,19 @@ const GravityFormForm = ({ id, captchaSiteKey, formData, lambda, presetValues = 
 
   const onSubmitCallback = async values => {
     setFormValues(values);
-  };
 
-  useEffect(() => {
     if (!formLoading) {
       setLoadingState(true);
       setGeneralError('');
 
       // Check that at least one field has been filled in
-      if (submissionHasOneFieldEntry(formValues)) {
+      if (submissionHasOneFieldEntry(values)) {
         recaptchaRef.current.execute();
       } else {
         setGeneralError('leastOneField');
       }
     }
-  }, [formValues]);
+  };
 
   const afterCaptchaCallback = async (captcha) => {
     await passToGravityForms(
