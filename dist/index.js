@@ -64,6 +64,16 @@ const GravityFormForm = ({
 
   const singleForm = (0, _getForm.default)(formData, id);
 
+  const onSubmit = e => {
+    e.preventDefault();
+
+    if (recaptchaRef.current.getValue()) {
+      handleSubmit(onSubmitCallback);
+    } else {
+      recaptchaRef.current.execute();
+    }
+  };
+
   const onSubmitCallback = async values => {
     if (!formLoading) {
       setLoadingState(true); // Clean error
@@ -71,7 +81,7 @@ const GravityFormForm = ({
       setGeneralError(''); // Check that at least one field has been filled in
 
       if ((0, _manageFormData.submissionHasOneFieldEntry)(values)) {
-        await (0, _passToGravityForms.default)(singleForm.apiURL, values, captcha, lambda).then(restResponse => {
+        await (0, _passToGravityForms.default)(singleForm.apiURL, values, recaptchaRef.current.getValue(), lambda).then(restResponse => {
           setLoadingState(false);
 
           if (restResponse.status === 'error') {
@@ -106,24 +116,24 @@ const GravityFormForm = ({
       id: `gravityform--id-${id}`,
       className: formLoading ? `gravityform gravityform--loading gravityform--id-${id}` : `gravityform gravityform--id-${id}`,
       key: `gravityform--id-${id}`,
-      onSubmit: handleSubmit(onSubmitCallback),
+      onSubmit: onSubmit,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 87
+        lineNumber: 96
       },
       __self: void 0
     }, generalError && _react.default.createElement(_FormGeneralError.default, {
       errorCode: generalError,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 98
+        lineNumber: 107
       },
       __self: void 0
     }), _react.default.createElement("div", {
       className: "gravityform__wrapper",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 101
+        lineNumber: 110
       },
       __self: void 0
     }, _react.default.createElement(_FieldBuilder.default, {
@@ -134,30 +144,14 @@ const GravityFormForm = ({
       errors: errors,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 102
-      },
-      __self: void 0
-    })), _react.default.createElement("div", {
-      className: "gravityform__captcha",
-      __source: {
-        fileName: _jsxFileName,
         lineNumber: 111
-      },
-      __self: void 0
-    }, _react.default.createElement(_reactGoogleRecaptcha.default, {
-      sitekey: captchaSiteKey,
-      ref: recaptchaRef,
-      onChange: setCaptcha,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 112
       },
       __self: void 0
     })), _react.default.createElement("div", {
       className: "gravityform__footer",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 119
+        lineNumber: 120
       },
       __self: void 0
     }, _react.default.createElement("button", {
@@ -166,24 +160,40 @@ const GravityFormForm = ({
       disabled: formLoading,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 120
+        lineNumber: 121
       },
       __self: void 0
     }, !formLoading && _react.default.createElement("span", {
       className: "gravityform__button__default",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 122
+        lineNumber: 123
       },
       __self: void 0
     }, singleForm.button.text ? singleForm.button.text : 'Submit', ' '), formLoading && _react.default.createElement("span", {
       className: "gravityform__button__loading",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 129
+        lineNumber: 130
       },
       __self: void 0
-    }, loader && loader, !loader && 'Loading'))));
+    }, loader && loader, !loader && 'Loading'))), _react.default.createElement(_reactGoogleRecaptcha.default, {
+      sitekey: captchaSiteKey,
+      ref: recaptchaRef,
+      onChange: response => {
+        if (response) {
+          handleSubmit();
+        } else {
+          recaptchaRef.current.execute();
+        }
+      },
+      size: "invisible",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 138
+      },
+      __self: void 0
+    }));
   }
 
   return _react.default.createElement(_react.default.Fragment, null);

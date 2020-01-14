@@ -34,6 +34,15 @@ const GravityFormForm = ({ id, captchaSiteKey, formData, lambda, presetValues = 
   // Take ID argument and graphQL Gravity Form data for this form
   const singleForm = getForm(formData, id);
 
+  const onSubmit = (e) => {
+    e.preventDefault();
+    if (recaptchaRef.current.getValue()) {
+      handleSubmit(onSubmitCallback);
+    } else {
+      recaptchaRef.current.execute();
+    }
+  };
+
   const onSubmitCallback = async values => {
     if (!formLoading) {
       setLoadingState(true);
@@ -46,7 +55,7 @@ const GravityFormForm = ({ id, captchaSiteKey, formData, lambda, presetValues = 
         await passToGravityForms(
           singleForm.apiURL,
           values,
-          captcha,
+          recaptchaRef.current.getValue(),
           lambda,
         ).then((restResponse) => {
           setLoadingState(false);
@@ -92,7 +101,7 @@ const GravityFormForm = ({ id, captchaSiteKey, formData, lambda, presetValues = 
               : `gravityform gravityform--id-${id}`
           }
           key={`gravityform--id-${id}`}
-          onSubmit={handleSubmit(onSubmitCallback)}
+          onSubmit={onSubmit}
         >
           {generalError && (
             <FormGeneralError errorCode={generalError} />
@@ -105,14 +114,6 @@ const GravityFormForm = ({ id, captchaSiteKey, formData, lambda, presetValues = 
               presetValues={presetValues}
               register={register}
               errors={errors}
-            />
-          </div>
-
-          <div className="gravityform__captcha">
-            <ReCAPTCHA
-              sitekey={captchaSiteKey}
-              ref={recaptchaRef}
-              onChange={setCaptcha}
             />
           </div>
 
@@ -133,6 +134,19 @@ const GravityFormForm = ({ id, captchaSiteKey, formData, lambda, presetValues = 
               )}
             </button>
           </div>
+
+          <ReCAPTCHA
+            sitekey={captchaSiteKey}
+            ref={recaptchaRef}
+            onChange={response => {
+              if (response) {
+                handleSubmit();
+              } else {
+                recaptchaRef.current.execute();
+              }
+            }}
+            size="invisible"
+          />
         </form>
       )
     );
