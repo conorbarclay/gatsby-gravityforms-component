@@ -104,7 +104,6 @@ const GravityFormForm = ({
         onSubmitSuccessCallback(restResponse.data);
       }
     });
-    recaptchaRef.current.reset();
   };
 
   if (!sent) {
@@ -115,21 +114,21 @@ const GravityFormForm = ({
       onSubmit: handleSubmit(onSubmitCallback),
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 93
+        lineNumber: 91
       },
       __self: void 0
     }, generalError && _react.default.createElement(_FormGeneralError.default, {
       errorCode: generalError,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 104
+        lineNumber: 102
       },
       __self: void 0
     }), _react.default.createElement("div", {
       className: "gravityform__wrapper",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 107
+        lineNumber: 105
       },
       __self: void 0
     }, _react.default.createElement(_FieldBuilder.default, {
@@ -140,14 +139,14 @@ const GravityFormForm = ({
       errors: errors,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 108
+        lineNumber: 106
       },
       __self: void 0
     })), _react.default.createElement("div", {
       className: "gravityform__footer",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 117
+        lineNumber: 115
       },
       __self: void 0
     }, _react.default.createElement("button", {
@@ -156,21 +155,21 @@ const GravityFormForm = ({
       disabled: formLoading,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 118
+        lineNumber: 116
       },
       __self: void 0
     }, !formLoading && _react.default.createElement("span", {
       className: "gravityform__button__default",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 120
+        lineNumber: 118
       },
       __self: void 0
     }, singleForm.button.text ? singleForm.button.text : 'Submit', ' '), formLoading && _react.default.createElement("span", {
       className: "gravityform__button__loading",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 127
+        lineNumber: 125
       },
       __self: void 0
     }, loader && loader, !loader && 'Loading'))), _react.default.createElement(_reactGoogleRecaptcha.default, {
@@ -183,7 +182,7 @@ const GravityFormForm = ({
       },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 135
+        lineNumber: 133
       },
       __self: void 0
     }));

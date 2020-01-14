@@ -83,8 +83,6 @@ const GravityFormForm = ({ id, captchaSiteKey, formData, lambda, presetValues = 
         onSubmitSuccessCallback(restResponse.data);
       }
     });
-
-    recaptchaRef.current.reset();
   };
 
   if (!sent) {
