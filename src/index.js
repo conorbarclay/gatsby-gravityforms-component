@@ -36,56 +36,53 @@ const GravityFormForm = ({ id, captchaSiteKey, formData, lambda, presetValues = 
 
   const onSubmitCallback = async values => {
     setFormValues(values);
-    recaptchaRef.current.execute();
-  };
-
-  const afterCaptchaCallback = async (captcha) => {
-    const values = formValues;
 
     if (!formLoading) {
       setLoadingState(true);
-
-      // Clean error
       setGeneralError('');
 
       // Check that at least one field has been filled in
-      if (submissionHasOneFieldEntry(values)) {
-        await passToGravityForms(
-          singleForm.apiURL,
-          values,
-          captcha,
-          lambda,
-        ).then((restResponse) => {
-          setLoadingState(false);
-
-          if (restResponse.status === 'error') {
-            // Handle the errors
-            // First check to make sure we have the correct data
-            if (doesObjectExist(restResponse.data)) {
-              // Validation errors passed back by Gravity Forms
-              if (restResponse.data.status === 'gravityFormErrors') {
-                // Pass messages to handle that sets react-hook-form errors
-                handleGravityFormsValidationErrors(
-                  restResponse.data.validation_messages,
-                  setError,
-                );
-              }
-            } else {
-              console.log(restResponse);
-              // Seemed to be an unknown issue
-              setGeneralError('unknownError');
-            }
-          }
-
-          if (restResponse.status === 'success') {
-            setSent(true);
-            onSubmitSuccessCallback(restResponse.data);
-          }
-        });
+      if (submissionHasOneFieldEntry(formValues)) {
+        recaptchaRef.current.execute();
       } else {
         setGeneralError('leastOneField');
       }
     }
+  };
+
+  const afterCaptchaCallback = async (captcha) => {
+    await passToGravityForms(
+      singleForm.apiURL,
+      formValues,
+      captcha,
+      lambda,
+    ).then((restResponse) => {
+      setLoadingState(false);
+
+      if (restResponse.status === 'error') {
+        // Handle the errors
+        // First check to make sure we have the correct data
+        if (doesObjectExist(restResponse.data)) {
+          // Validation errors passed back by Gravity Forms
+          if (restResponse.data.status === 'gravityFormErrors') {
+            // Pass messages to handle that sets react-hook-form errors
+            handleGravityFormsValidationErrors(
+              restResponse.data.validation_messages,
+              setError,
+            );
+          }
+        } else {
+          console.log(restResponse);
+          // Seemed to be an unknown issue
+          setGeneralError('unknownError');
+        }
+      }
+
+      if (restResponse.status === 'success') {
+        setSent(true);
+        onSubmitSuccessCallback(restResponse.data);
+      }
+    });
 
     recaptchaRef.current.reset();
   };
