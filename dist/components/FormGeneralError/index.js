@@ -9,8 +9,6 @@ var _react = _interopRequireDefault(require("react"));
 
 var _strings = _interopRequireDefault(require("../../utils/strings"));
 
-var _jsxFileName = "/Users/design3/Desktop/gatsby-gravityforms-component/src/components/FormGeneralError/index.js";
-
 const FormGeneralError = props => {
   let errorMessage = '';
 
@@ -28,19 +26,8 @@ const FormGeneralError = props => {
 
   if (errorMessage) {
     return _react.default.createElement("div", {
-      className: "gravityform__error_inform",
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 21
-      },
-      __self: void 0
-    }, _react.default.createElement("p", {
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 22
-      },
-      __self: void 0
-    }, errorMessage));
+      className: "gravityform__error_inform"
+    }, _react.default.createElement("p", null, errorMessage));
   } else {
     return false;
   }

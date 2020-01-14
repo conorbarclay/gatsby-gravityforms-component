@@ -1,8 +1,8 @@
 "use strict";
 
-var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
-
 var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
 exports.__esModule = true;
 exports.default = void 0;
@@ -17,15 +17,15 @@ var _inputSettings = require("../../utils/inputSettings");
 
 var _strings = _interopRequireDefault(require("../../utils/strings"));
 
-var _jsxFileName = "/Users/design3/Desktop/gatsby-gravityforms-component/src/components/Input/index.js";
-
 const Input = props => {
   const regex = props.inputMaskValue ? new RegExp(props.inputMaskValue) : false;
-  const [phoneNumber, setPhoneNumber] = (0, _react.useState)(props.value || '');
+
+  const _useState = (0, _react.useState)(props.value || ''),
+        phoneNumber = _useState[0],
+        setPhoneNumber = _useState[1];
+
   let inputType;
-  const {
-    type
-  } = props;
+  const type = props.type;
 
   switch (type) {
     case 'phone':
@@ -42,20 +42,10 @@ const Input = props => {
   }
 
   return _react.default.createElement("div", {
-    className: (0, _classnames.default)(props.wrapClassName, props.errors && 'gravityform__field--error'),
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 30
-    },
-    __self: void 0
+    className: (0, _classnames.default)(props.wrapClassName, props.errors && 'gravityform__field--error')
   }, _react.default.createElement("label", {
     htmlFor: props.name,
-    className: "gravityform__label",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 36
-    },
-    __self: void 0
+    className: "gravityform__label"
   }, props.label, props.maxLength > 0 && maxLengthSentence(props.maxLength, props.type)), (0, _inputSettings.outputDescription)(props.description, props.descriptionPlacement, 'above'), type === 'phone' && _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_reactPhoneNumberInput.default, {
     country: "CA",
     placeholder: props.placeholder,
@@ -63,12 +53,7 @@ const Input = props => {
     countrySelectTabIndex: -1,
     className: (0, _classnames.default)('gravityform__field__input', `gravityform__field__input__${props.type}`),
     name: props.name,
-    onChange: value => setPhoneNumber(value || ''),
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 48
-    },
-    __self: void 0
+    onChange: value => setPhoneNumber(value || '')
   }), _react.default.createElement("input", {
     type: "hidden",
     tabIndex: -1,
@@ -77,12 +62,7 @@ const Input = props => {
     value: phoneNumber,
     ref: props.register({
       required: props.required && _strings.default.errors.required
-    }),
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 60
-    },
-    __self: void 0
+    })
   })), type !== 'phone' && _react.default.createElement("input", {
     id: props.name,
     type: inputType,
@@ -101,19 +81,9 @@ const Input = props => {
         value: regex,
         message: regex && _strings.default.errors.pattern
       }
-    }),
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 73
-    },
-    __self: void 0
+    })
   }), (0, _inputSettings.outputDescription)(props.description, props.descriptionPlacement, 'below'), props.errors && _react.default.createElement("div", {
-    className: "gravityform__error_message",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 108
-    },
-    __self: void 0
+    className: "gravityform__error_message"
   }, props.errors.message));
 };
 

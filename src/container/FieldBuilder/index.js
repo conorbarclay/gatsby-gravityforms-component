@@ -43,19 +43,6 @@ const FieldBuilder = ({
         let errorKey = ''
 
         switch (field.type) {
-            // Add note for unsupported captcha field
-            case 'captcha':
-                return (
-                    <p>
-                        <strong>
-                            Gatsby Gravity Form Component currently does not
-                            support the CAPTCHA field. Form will not submit with
-                            this field present. Remove this field from the
-                            Gravity Form.
-                        </strong>
-                    </p>
-                )
-            // Start with the standard fields
             case 'text':
             case 'email':
             case 'phone':

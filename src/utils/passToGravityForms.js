@@ -1,30 +1,31 @@
-import axios from 'axios'
+import axios from 'axios';
 
-export default async (baseUrl, formData, lambdaEndpoint) => {
-    let lambaData = {
-        baseUrl: baseUrl,
-        payload: formData,
-    }
+export default async (baseUrl, formData, captcha, lambdaEndpoint) => {
+  let lambaData = {
+    captcha,
+    baseUrl: baseUrl,
+    payload: formData,
+  };
 
-    let result
+  let result;
 
-    try {
-        result = await axios.post(lambdaEndpoint, {
-            responseType: 'json',
-            withCredentials: true,
-            crossdomain: true,
-            data: lambaData,
-        })
-    } catch (err) {
-        // Pass back error
-        return {
-            status: 'error',
-            data: err.response,
-        }
-    }
-
+  try {
+    result = await axios.post(lambdaEndpoint, {
+      responseType: 'json',
+      withCredentials: true,
+      crossdomain: true,
+      data: lambaData,
+    });
+  } catch (err) {
+    // Pass back error
     return {
-        status: 'success',
-        data: result,
-    }
+      status: 'error',
+      data: err.response,
+    };
+  }
+
+  return {
+    status: 'success',
+    data: result,
+  };
 }

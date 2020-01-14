@@ -13,31 +13,14 @@ var _reactHtmlParser = _interopRequireDefault(require("react-html-parser"));
 
 var _inputSettings = require("../../utils/inputSettings");
 
-var _jsxFileName = "/Users/design3/Desktop/gatsby-gravityforms-component/src/components/Html/index.js";
-
 const Html = props => {
   return _react.default.createElement("div", {
-    className: props.wrapClassName,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 8
-    },
-    __self: void 0
+    className: props.wrapClassName
   }, _react.default.createElement("label", {
     htmlFor: props.name,
-    className: "gravityform__label",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 9
-    },
-    __self: void 0
+    className: "gravityform__label"
   }, props.label), (0, _inputSettings.outputDescription)(props.description, props.descriptionPlacement, 'above'), _react.default.createElement("div", {
-    className: (0, _classnames.default)('gravityform__' + props.type + '__wrap'),
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 17
-    },
-    __self: void 0
+    className: (0, _classnames.default)('gravityform__' + props.type + '__wrap')
   }, (0, _reactHtmlParser.default)(props.content)), (0, _inputSettings.outputDescription)(props.description, props.descriptionPlacement, 'below'));
 };
 
