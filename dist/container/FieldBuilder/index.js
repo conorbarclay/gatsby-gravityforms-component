@@ -29,10 +29,9 @@ var _helpers = require("../../utils/helpers");
 
 var _inputSettings = require("../../utils/inputSettings");
 
-var _jsxFileName = "/Users/design3/Desktop/gatsby-gravityforms-component/src/container/FieldBuilder/index.js";
+var _jsxFileName = "/Volumes/Toshi One/Users/Conor/Documents/Honeycomb/gatsby-gravityforms-component/src/container/FieldBuilder/index.js";
 
 const FieldBuilder = ({
-  formId,
   formData,
   presetValues = {},
   register,
@@ -58,6 +57,7 @@ const FieldBuilder = ({
       case 'phone':
       case 'website':
         return _react.default.createElement(_Input.default, {
+          visibility: field.visibility,
           key: field.id,
           name: `input_${field.id}`,
           label: field.label,
@@ -75,13 +75,14 @@ const FieldBuilder = ({
           errors: errors[`input_${field.id}`],
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 51
+            lineNumber: 49
           },
           __self: void 0
         });
 
       case 'textarea':
         return _react.default.createElement(_Textarea.default, {
+          visibility: field.visibility,
           key: field.id,
           name: `input_${field.id}`,
           label: field.label,
@@ -99,13 +100,14 @@ const FieldBuilder = ({
           errors: errors[`input_${field.id}`],
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 82
+            lineNumber: 81
           },
           __self: void 0
         });
 
       case 'select':
         return _react.default.createElement(_Select.default, {
+          visibility: field.visibility,
           key: field.id,
           name: `input_${field.id}`,
           label: field.label,
@@ -127,6 +129,7 @@ const FieldBuilder = ({
 
       case 'multiselect':
         return _react.default.createElement(_Multiselect.default, {
+          visibility: field.visibility,
           key: field.id,
           name: `input_${field.id}`,
           label: field.label,
@@ -141,13 +144,14 @@ const FieldBuilder = ({
           errors: errors[`input_${field.id}`],
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 133
+            lineNumber: 134
           },
           __self: void 0
         });
 
       case 'number':
         return _react.default.createElement(_Input.default, {
+          visibility: field.visibility,
           key: field.id,
           name: `input_${field.id}`,
           label: field.label,
@@ -165,7 +169,7 @@ const FieldBuilder = ({
           errors: errors[`input_${field.id}`],
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 153
+            lineNumber: 155
           },
           __self: void 0
         });
@@ -173,6 +177,7 @@ const FieldBuilder = ({
       case 'checkbox':
         errorKey = (0, _helpers.filteredKeys)(errors, RegExp(`input_${field.id}_`));
         return _react.default.createElement(_Checkbox.default, {
+          visibility: field.visibility,
           key: field.id,
           name: `input_${field.id}`,
           label: field.label,
@@ -186,7 +191,7 @@ const FieldBuilder = ({
           errors: errorKey.length > 0 ? errors[errorKey[0]] : null,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 185
+            lineNumber: 188
           },
           __self: void 0
         });
@@ -194,6 +199,7 @@ const FieldBuilder = ({
       case 'radio':
         errorKey = (0, _helpers.filteredKeys)(errors, RegExp(`input_${field.id}_`));
         return _react.default.createElement(_Radio.default, {
+          visibility: field.visibility,
           key: field.id,
           name: `input_${field.id}`,
           label: field.label,
@@ -207,7 +213,7 @@ const FieldBuilder = ({
           errors: errorKey.length > 0 ? errors[errorKey[0]] : null,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 207
+            lineNumber: 211
           },
           __self: void 0
         });
@@ -229,7 +235,7 @@ const FieldBuilder = ({
           errors: errors[`input_${field.id}`],
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 228
+            lineNumber: 233
           },
           __self: void 0
         });
@@ -247,7 +253,7 @@ const FieldBuilder = ({
           className: field.cssClass,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 257
+            lineNumber: 262
           },
           __self: void 0
         });

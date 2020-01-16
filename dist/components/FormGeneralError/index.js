@@ -9,7 +9,7 @@ var _react = _interopRequireDefault(require("react"));
 
 var _strings = _interopRequireDefault(require("../../utils/strings"));
 
-var _jsxFileName = "/Users/design3/Desktop/gatsby-gravityforms-component/src/components/FormGeneralError/index.js";
+var _jsxFileName = "/Volumes/Toshi One/Users/Conor/Documents/Honeycomb/gatsby-gravityforms-component/src/components/FormGeneralError/index.js";
 
 const FormGeneralError = props => {
   let errorMessage = '';

@@ -11,7 +11,7 @@ var _react = _interopRequireDefault(require("react"));
 
 var _inputSettings = require("../../utils/inputSettings");
 
-var _jsxFileName = "/Users/design3/Desktop/gatsby-gravityforms-component/src/components/Multiselect/index.js";
+var _jsxFileName = "/Volumes/Toshi One/Users/Conor/Documents/Honeycomb/gatsby-gravityforms-component/src/components/Multiselect/index.js";
 
 const Multiselect = props => {
   return _react.default.createElement("div", {

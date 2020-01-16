@@ -31,6 +31,7 @@ const Input = props => {
       className={classnames(
         props.wrapClassName,
         props.errors && 'gravityform__field--error',
+        props.visibility === 'hidden' && 'gravityform__field--hidden',
       )}
     >
       {!!(type !== 'hidden') && (
@@ -83,6 +84,7 @@ const Input = props => {
           name={props.name}
           defaultValue={props.value}
           placeholder={props.placeholder}
+          tabIndex={props.visibility === 'hidden' ? -1 : null}
           ref={props.register({
             required: props.required && strings.errors.required,
             maxlength: {
