@@ -13,7 +13,7 @@ var _inputSettings = require("../../utils/inputSettings");
 
 var _strings = _interopRequireDefault(require("../../utils/strings"));
 
-var _jsxFileName = "/Volumes/Toshi One/Users/Conor/Documents/Honeycomb/gatsby-gravityforms-component/src/components/Radio/index.js";
+var _jsxFileName = "/Users/design3/Desktop/gatsby-gravityforms-component/src/components/Radio/index.js";
 
 const Radio = ({
   name,
@@ -35,7 +35,7 @@ const Radio = ({
       lineNumber: 20
     },
     __self: void 0
-  }, _react.default.createElement("legend", {
+  }, _react.default.createElement("label", {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 27

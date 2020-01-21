@@ -24,7 +24,7 @@ const Radio = ({
         visibility === 'hidden' && 'gravityform__field--hidden',
       )}
     >
-      <legend>{label}</legend>
+      <label>{label}</label>
       {outputDescription(description, descriptionPlacement, 'above')}
       {options.map((choice, index) => {
         const choiceID = index + 1;

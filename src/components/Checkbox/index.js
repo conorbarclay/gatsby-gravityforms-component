@@ -25,7 +25,7 @@ const Checkbox = ({
         visibility === 'hidden' && 'gravityform__field--hidden',
       )}
     >
-      <legend>{label}</legend>
+      <label>{label}</label>
       {outputDescription(description, descriptionPlacement, 'above')}
       <ul className="gravityform__field__options">
         {options.map((choice, index) => {

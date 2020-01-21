@@ -12,7 +12,7 @@ var _react = _interopRequireDefault(require("react"));
 
 var _reactHtmlParser = _interopRequireDefault(require("react-html-parser"));
 
-var _jsxFileName = "/Volumes/Toshi One/Users/Conor/Documents/Honeycomb/gatsby-gravityforms-component/src/utils/inputSettings.js";
+var _jsxFileName = "/Users/design3/Desktop/gatsby-gravityforms-component/src/utils/inputSettings.js";
 
 /**
  * This file manages all of the Gravity Forms input settings.

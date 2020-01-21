@@ -29,7 +29,7 @@ var _helpers = require("../../utils/helpers");
 
 var _inputSettings = require("../../utils/inputSettings");
 
-var _jsxFileName = "/Volumes/Toshi One/Users/Conor/Documents/Honeycomb/gatsby-gravityforms-component/src/container/FieldBuilder/index.js";
+var _jsxFileName = "/Users/design3/Desktop/gatsby-gravityforms-component/src/container/FieldBuilder/index.js";
 
 const FieldBuilder = ({
   formData,
