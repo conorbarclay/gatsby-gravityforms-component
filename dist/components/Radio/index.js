@@ -41,13 +41,20 @@ const Radio = ({
       lineNumber: 27
     },
     __self: void 0
-  }, label), (0, _inputSettings.outputDescription)(description, descriptionPlacement, 'above'), options.map((choice, index) => {
+  }, label), (0, _inputSettings.outputDescription)(description, descriptionPlacement, 'above'), _react.default.createElement("ul", {
+    className: "gravityform__field__options",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 29
+    },
+    __self: void 0
+  }, options.map((choice, index) => {
     const choiceID = index + 1;
-    return _react.default.createElement("div", {
+    return _react.default.createElement("li", {
       key: `${name}-${choiceID}`,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 32
+        lineNumber: 33
       },
       __self: void 0
     }, _react.default.createElement("input", {
@@ -63,22 +70,22 @@ const Radio = ({
       }),
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 33
+        lineNumber: 34
       },
       __self: void 0
     }), _react.default.createElement("label", {
       htmlFor: `${name}_${choiceID}`,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 48
+        lineNumber: 49
       },
       __self: void 0
     }, choice.text));
-  }), (0, _inputSettings.outputDescription)(description, descriptionPlacement, 'below'), errors && _react.default.createElement("div", {
+  })), (0, _inputSettings.outputDescription)(description, descriptionPlacement, 'below'), errors && _react.default.createElement("div", {
     className: "gravityform__error_message",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 56
+      lineNumber: 58
     },
     __self: void 0
   }, errors.message));

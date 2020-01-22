@@ -14,7 +14,7 @@ export default (formData, id) => {
             return parseInt(form.node.formId) === parseInt(id)
         })
 
-        // If we have a form, clean up a little more before returning
+        // If we have af form, clean up a little more before returning
         // Do so many crazy checks because each level needs checking
         // to stop errors
         if (
