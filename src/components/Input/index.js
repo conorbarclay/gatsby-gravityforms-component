@@ -34,8 +34,15 @@ const Input = props => {
         props.visibility === 'hidden' && 'gravityform__field--hidden',
       )}
     >
-      {!!(type !== 'hidden') && (
+      {!!(type !== 'hidden' && type !== 'phone') && (
         <label htmlFor={props.name} className="gravityform__label">
+          {props.label}
+          {props.maxLength > 0 &&
+           maxLengthSentence(props.maxLength, props.type)}
+        </label>
+      )}
+      {!!(type === 'phone') && (
+        <label htmlFor={`${props.name}_phone_number`} className="gravityform__label">
           {props.label}
           {props.maxLength > 0 &&
            maxLengthSentence(props.maxLength, props.type)}
@@ -48,8 +55,6 @@ const Input = props => {
       )}
       {type === 'phone' && (
         <>
-          <label htmlFor={`${props.name}_phone_input`}
-            style={{ visibility: 'hidden', opacity: 0 }}>{props.label}</label>
           <PhoneInput
             country="CA"
             placeholder={props.placeholder}
@@ -59,7 +64,7 @@ const Input = props => {
               'gravityform__field__input',
               `gravityform__field__input__${props.type}`,
             )}
-            id={`${props.name}_phone_input`}
+            id={`${props.name}_phone_number`}
             onChange={value => setPhoneNumber(value || '')}
           />
           <input
@@ -68,6 +73,7 @@ const Input = props => {
             id={props.name}
             name={props.name}
             value={phoneNumber}
+            title={props.label}
             ref={props.register({
               required: props.required && strings.errors.required,
             })}
