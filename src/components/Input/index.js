@@ -48,6 +48,8 @@ const Input = props => {
       )}
       {type === 'phone' && (
         <>
+          <label htmlFor={`${props.name}_phone_input`}
+            style={{ visibility: 'hidden', opacity: 0 }}>{props.label}</label>
           <PhoneInput
             country="CA"
             placeholder={props.placeholder}
@@ -57,7 +59,7 @@ const Input = props => {
               'gravityform__field__input',
               `gravityform__field__input__${props.type}`,
             )}
-            name={props.name}
+            id={`${props.name}_phone_input`}
             onChange={value => setPhoneNumber(value || '')}
           />
           <input
