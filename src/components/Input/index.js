@@ -1,6 +1,7 @@
 import classnames from 'classnames';
 import React, { useState } from 'react';
 import PhoneInput from 'react-phone-number-input';
+import flags from 'react-phone-number-input/flags';
 import { outputDescription } from '../../utils/inputSettings';
 import strings from '../../utils/strings';
 
@@ -59,6 +60,7 @@ const Input = props => {
             country="CA"
             placeholder={props.placeholder}
             value={phoneNumber}
+            flags={flags}
             countrySelectTabIndex={-1}
             className={classnames(
               'gravityform__field__input',
